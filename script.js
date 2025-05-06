@@ -347,7 +347,7 @@ ${ex.imagem ? `<img src="${ex.imagem}" style="max-width:100%; border-radius:8px;
       <label><input type="text" class="sem-borda" placeholder="Observação" value="${ex.obs}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'obs', this.value)"></label>
 
       <button class="checkbox-btn ${ex.concluido ? 'checked' : ''}" onclick="marcar(${index})">
-        ${ex.concluido ? '✔ Concluído' : 'Concluir exercício'}
+        ${ex.concluido ? '✔ Concluído' : 'Concluído'}
       </button>
     `;
         container.appendChild(bloco);
