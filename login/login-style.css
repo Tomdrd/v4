@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .login-box {
+    background-color: #f2f2f2;
+  }
+
+  .google-btn {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .google-btn:hover {
+    background-color: #eaeaea;
+  }
+}
+
+/* Estilos padrão para .login-box */
+.login-box {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    width: 90%; /* Largura padrão */
+    max-width: 500px; /* Largura máxima padrão */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media query para telas menores (mobile) */
+@media (max-width: 768px) {
+    .login-box {
+        width: 80%; /* Aumenta a largura em telas menores */
+        max-width: none; /* Remove a largura máxima para ocupar mais espaço */
+        padding: 40px; /* Aumenta o preenchimento para telas menores */
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 0 20px;
+}  
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f8a025;
+}
+
+.login-box input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.login-box button {
+  width: 80%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #f8a025;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-box button:hover {
+  background-color: #e58900;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #ccc;
+}
+
+.google-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+

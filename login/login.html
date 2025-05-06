@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Estética e Saúde Academia">
+    <meta property="og:description" content="Saúde, beleza e performance em um só lugar!">
+    <meta property="og:image" content="https://i.imgur.com/ln8inqr.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://tomdrd.github.io/V3">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Login na página</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <link rel="stylesheet" href="login-style.css">
+    <script src="app.js"></script>
+
+</head>
+
+<body>
+    <header>
+
+
+        </nav>
+    </header>
+
+      <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
+        <div class="login-box">
+          <h2>Login</h2>
+          <div id="infoUsuario"></div>
+          <input style="display: none;" id="email" placeholder="Digite seu e-mail">
+          <input style="display: none;"  type="password" id="senha" placeholder="Digite sua senha">
+          <button style="display: none;"  onclick="loginComEmailESenha()">Entrar</button>
+          <button style="display: none;" onclick="criarConta()">Criar Conta</button>
+          <button  class="google-btn" onclick="loginComGoogle()">
+            <img src="google.png" class="google-icon" alt="Google">
+            Entrar com Google
+          </button>
+          <button class="redefinir-btn" onclick="logout()" style="margin-top: 10px;">Sair</button>
+          <button style="display: none;" class="redefinir-btn" onclick="redefinirSenha()">Esqueci minha senha</button>
+         
+        </div>
+        </div>
+    
+   
+   
+  
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Estética e Saúde Academia">
+    <meta property="og:description" content="Saúde, beleza e performance em um só lugar!">
+    <meta property="og:image" content="https://i.imgur.com/ln8inqr.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://tomdrd.github.io/V3">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Estética e Saúde Academia</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Logo"></a>  
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="login/login.html">Login</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
+
+        <div class="treino-container">
+            <h2>Ficha de Treino por Dia</h2>
+            <div id="dia-treino">
+                <select id="diaSemana" onchange="trocarDia()">
+                    <option value="treino-a">Treino A</option>
+                    <option value="treino-b">Treino B</option>
+                    <option value="treino-c">Treino C</option>
+                    <option value="treino-d">Treino D</option>
+                    <option value="treino-e">Treino E</option>
+                </select>
+                <input type="text" id="nomeTreino" placeholder="Nome do treino (ex: Perna)" />
+            </div>
+            <div class="button-container">
+                <button onclick="adicionarExercicio()">Adicionar</button>
+                <button onclick="editarTreino()">Editar</button>
+                <button onclick="salvarTreino()">Salvar</button>
+                <button onclick="novoTreino()">Novo</button>
+            </div>
+        
+            <div id="exercicios"></div>
+            <div class="button-container">
+                <button onclick="marcarTodos()">Todos concluído</button>
+                <button onclick="finalizarTreino()">Finalizar</button>
+            </div>
+        
+            <p id="mensagemParabens"></p>
+        </div>
+        <!-- COMPARTILHAR-->
+        <div class="share-buttons">
+            <p>Compartilhe:</p>
+            <button class="share-button whatsapp" onclick="shareWhatsApp()">
+                <img src="whatsapp.png" alt="WhatsApp" width="20" height="20">
+            </button>
+            <button class="share-button facebook" onclick="shareFacebook()">
+                <img src="facebook.png" alt="Facebook" width="20" height="20">
+            </button>
+            <button class="share-button email" onclick="shareEmail()">
+                <img src="email.png" alt="Email" width="20" height="20">
+            </button>
+            <button class="share-button twitter" onclick="shareTwitter()">
+                <img src="twitter.png" alt="Twitter" width="20" height="20">
+            </button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="sobre">
+            <h2>Redes Sociais</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/qr/4KCWWIXJLLUVF1" target="_blank">
+                    <img src="whatsapp.png" alt="Whatsapp" width="20" height="20"> Whatsapp
+                </a>
+                <a href="https://www.instagram.com/academia2023estetica_e_saude/?igsh=MWtpMzNiNnAxeDRsbA%3D%3D#"
+                    target="_blank">
+                    <img src="instagram.png" alt="Instagram" width="20" height="20"> Instagram
+                </a>
+            </div>
+            <div class="linha">
+            </div>
+            <div class="report-error">
+                <a href="mailto:antonyeltonrodrigues@gmail.com">
+                    <img src="error.png" alt="Instagram" width="14" height="14"> Reportar erro nesta página
+                </a>
+            </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

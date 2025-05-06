@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Calculadora de IMC">
+    <meta property="og:description" content="Saiba como está o seu indice de massa corporal">
+    <meta property="og:image" content="https://i.imgur.com/ln8inqr.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://tomdrd.github.io/V3">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora de IMC</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Logo"></a>  
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="login/login.html">Login</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
+<!-- CONTEÚDO BOX AQUI -->
+         <!-- Calculadora de IMC -->
+         <div class="box">
+            <h2>Calculadora de IMC</h2>
+            <p> Saiba como está o seu indice de massa corporal:</p>
+            <div class="link-post">
+                <a href="post.html?slug=entendendo-o-imc">
+                    <img src="img/post1.jpg" alt="Imagem do Post">
+                    <span>Quais as limitações no IMC?</span>
+                </a>
+            </div>                  
+            <div class="input-imc">
+                <input type="number" id="peso" placeholder="Peso (kg)">
+                <input type="number" id="altura" placeholder="Altura (cm)">
+            </div>
+            <br>
+            <button class="botao-calcular" onclick="calcularIMC()">Calcular</button>
+            <p id="resultadoIMC"></p>
+
+        </div>
+        <!-- COMPARTILHAR-->
+        <div class="share-buttons">
+            <p>Compartilhe:</p>
+            <button class="share-button whatsapp" onclick="shareWhatsApp()">
+                <img src="whatsapp.png" alt="WhatsApp" width="20" height="20">
+            </button>
+            <button class="share-button facebook" onclick="shareFacebook()">
+                <img src="facebook.png" alt="Facebook" width="20" height="20">
+            </button>
+            <button class="share-button email" onclick="shareEmail()">
+                <img src="email.png" alt="Email" width="20" height="20">
+            </button>
+            <button class="share-button twitter" onclick="shareTwitter()">
+                <img src="twitter.png" alt="Twitter" width="20" height="20">
+            </button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="sobre">
+            <h2>Redes Sociais</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/qr/4KCWWIXJLLUVF1" target="_blank">
+                    <img src="whatsapp.png" alt="Whatsapp" width="20" height="20"> Whatsapp
+                </a>
+                <a href="https://www.instagram.com/academia2023estetica_e_saude/?igsh=MWtpMzNiNnAxeDRsbA%3D%3D#"
+                    target="_blank">
+                    <img src="instagram.png" alt="Instagram" width="20" height="20"> Instagram
+                </a>
+            </div>
+            <div class="linha">
+            </div>
+            <div class="report-error">
+                <a href="mailto:antonyeltonrodrigues@gmail.com">
+                    <img src="error.png" alt="Instagram" width="14" height="14"> Reportar erro nesta página
+                </a>
+            </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

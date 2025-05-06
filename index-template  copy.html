@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Estética e Saúde Academia">
+    <meta property="og:description" content="Saúde, beleza e performance em um só lugar!">
+    <meta property="og:image" content="https://i.imgur.com/ln8inqr.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://tomdrd.github.io/V3">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Estética e Saúde Academia</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="Logo"></a>  
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="#">Login</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
+
+        <!-- Calorias -->
+        <!-- Calculadora de Gasto Calórico -->
+        <div class="box2">
+            <h2>Calculadora de Gasto Calórico</h2>
+            <p> Saiba como está o seu consumo calórico por dia:</p>
+            <div class="link-post">
+                <a href="post.html?slug=gasto-calorico-diario">
+                    <img src="img/post3.jpg" alt="Imagem do Post">
+                    <span>Como é calculado o gasto calórico diário?</span>
+                </a>
+            </div>
+            <form id="calculoForm">
+                <input type="number" id="idade-calorias" placeholder="Idade" required>
+                <input type="number" id="peso-calorias" placeholder="Peso (kg)" required>
+                <input type="number" id="altura-calorias" placeholder="Altura (cm)" required>
+                <div class="selecionar">
+                    <select id="sexo-calorias">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                    <select id="atividade-calorias">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Levemente ativo</option>
+                        <option value="1.55">Moderadamente ativo</option>
+                        <option value="1.725">Altamente ativo</option>
+                        <option value="1.9">Extremamente ativo</option>
+                    </select>
+                </div>
+                <button class="botao-resultado" type="button" onclick="calcularGastoCalorico()">Calcular</button>
+            </form>
+            <p id="resultado-calorias"></p>
+        </div>
+        <!-- FIM Calorias -->
+        <!-- QUIZ-->
+        <div class="box">
+            <div class="quiz-container">
+                <h2>Quiz de Emoções</h2>
+                <p>Como você está se sentindo hoje?</p>
+                <div>
+                    <img src="animado.png" alt="Animado" class="emoji" title="Estou animado!" onclick="calculateResult('animado')">
+                    <img src="neutro.png" alt="Neutro" class="emoji" title="Estou neutro." onclick="calculateResult('neutro')">
+                    <img src="cansado.png" alt="Cansado" class="emoji" title="Estou cansado." onclick="calculateResult('cansado')">
+                    <img src="triste.png" alt="Triste" class="emoji" title="Estou triste." onclick="calculateResult('triste')">
+
+                    <div>
+
+                    </div>
+                    <div style="display: none;">
+                        <label>O que ocupa seus pensamentos ultimamente?</label><br>
+                        <select id="question2">
+                            <option value="futuro">Futuro</option>
+                            <option value="familia">Família</option>
+                            <option value="trabalho">Trabalho</option>
+                            <option value="lembrancas">Lembranças do passado</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="result" style="font-size: 16px; font-style: italic;"></p>
+            </div>
+        </div>
+        <!-- FIM DO QUIZ-->
+        <!-- COMPARTILHAR-->
+        <div class="share-buttons">
+            <p>Compartilhe:</p>
+            <button class="share-button whatsapp" onclick="shareWhatsApp()">
+                <img src="whatsapp.png" alt="WhatsApp" width="20" height="20">
+            </button>
+            <button class="share-button facebook" onclick="shareFacebook()">
+                <img src="facebook.png" alt="Facebook" width="20" height="20">
+            </button>
+            <button class="share-button email" onclick="shareEmail()">
+                <img src="email.png" alt="Email" width="20" height="20">
+            </button>
+            <button class="share-button twitter" onclick="shareTwitter()">
+                <img src="twitter.png" alt="Twitter" width="20" height="20">
+            </button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="sobre">
+            <h2>Redes Sociais</h2>
+            <div class="social-icons">
+                <a href="https://wa.me/qr/4KCWWIXJLLUVF1" target="_blank">
+                    <img src="whatsapp.png" alt="Whatsapp" width="20" height="20"> Whatsapp
+                </a>
+                <a href="https://www.instagram.com/academia2023estetica_e_saude/?igsh=MWtpMzNiNnAxeDRsbA%3D%3D#"
+                    target="_blank">
+                    <img src="instagram.png" alt="Instagram" width="20" height="20"> Instagram
+                </a>
+            </div>
+            <div class="linha">
+            </div>
+            <div class="report-error">
+                <a href="mailto:antonyeltonrodrigues@gmail.com">
+                    <img src="error.png" alt="Instagram" width="14" height="14"> Reportar erro nesta página
+                </a>
+            </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
