@@ -128,7 +128,13 @@ window.redefinirSenha = function () {
     });
 }
 function mostrarInfoUsuario(user) {
-  // Redireciona para a página principal após login
-  window.location.href = "../index.html";
+  document.getElementById('infoUsuario').innerHTML = `
+    <img src="${user.photoURL}" alt="Foto de perfil">
+    <p><strong>Bem-vindo:</strong> ${user.displayName}</p>
+  `;
+  
+  setTimeout(() => {
+    window.location.href = "../index.html";
+  }, 2000); // Espera 2 segundos e redireciona
 }
 
