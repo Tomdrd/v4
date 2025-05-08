@@ -424,3 +424,4 @@ function salvarLocal() {
 window.onload = () => {
     trocarDia();
 };
+
