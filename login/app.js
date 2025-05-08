@@ -127,3 +127,8 @@ window.redefinirSenha = function () {
       alert("Erro ao enviar e-mail: " + error.message);
     });
 }
+function mostrarInfoUsuario(user) {
+  // Redireciona para a página principal após login
+  window.location.href = "../index.html";
+}
+
