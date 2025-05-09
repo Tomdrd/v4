@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HF1H65STC1');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Estética e Saúde Academia">
     <meta property="og:description" content="Saúde, beleza e performance em um só lugar!">
-    <meta property="og:image" content="https://i.imgur.com/nIqRyA2.png">
+    <meta property="og:image" content="https://i.imgur.com/ln8inqr.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:url" content="http://www.academiaesteticaesaude.fit">
+    <meta property="og:url" content="https://tomdrd.github.io/V3">
     <meta property="og:type" content="website">
     <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
@@ -25,7 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Estética e Saúde Academia</title>
-    
 </head>
 
 <body>
@@ -33,9 +23,8 @@
         <a href="index.html"><img src="logo.png" alt="Logo"></a>  
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <nav id="menu">
-            <a href="login/login.html">Login</a>
+            <a href="#">Login</a>
             <a href="blog.html">Blog</a>
-            <a href="https://forms.gle/pko9Kxnaw7Ej5D3MA" target="_blank">Pesquisa</a>
         </nav>
     </header>
 
@@ -50,50 +39,106 @@
         <!-- Calculadora de IMC -->
         <div class="box">
             <h2>Calculadora de IMC</h2>
-            <div class="icons">
-                <a href="imc.html">
-                    <img src="imc.png" alt="Imagem do Post">       
+            <p> Saiba como está o seu indice de massa corporal:</p>
+            <div class="link-post">
+                <a href="post.html?slug=entendendo-o-imc">
+                    <img src="img/post1.jpg" alt="Imagem do Post">
+                    <span>Quais as limitações no IMC?</span>
                 </a>
+            </div>                  
+            <div class="input-imc">
+                <input type="number" id="peso" placeholder="Peso (kg)">
+                <input type="number" id="altura" placeholder="Altura (cm)">
             </div>
-
+            <br>
+            <button class="botao-calcular" onclick="calcularIMC()">Calcular</button>
+            <p id="resultadoIMC"></p>
 
         </div>
 
         <!-- Contador de Água -->
         <div class="box">
             <h2>Contador de água</h2>
-            <div class="icons">
-                <a href="agua.html">
-                    <img src="agua.png" alt="Imagem do Post">       
+            <p>Mantenha-se sempre bem hidratado.</p>
+            <div class="link-post">
+                <a href="post.html?slug=importancia-da-hidratacao">
+                    <img src="img/post0.jpg" alt="Imagem do Post">
+                    <span>Quanto de água devo beber?</span>
                 </a>
+            </div> 
+            <div class="meta-container">
+                <label for="meta-agua">Meta diária (ml):</label>
+                <input type="text" id="meta-agua" value="2000ml" onfocus="removerMl()" onblur="adicionarMl()"
+                    oninput="validarNumero()">
             </div>
+
+
+
+            <p style="display: none;">Consumido: <span id="agua-total">0</span>ml</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <span id="progress-text">Consumido: <span id="agua-total">0</span>ml</span>
+            </div>
+            <div class="button-container">
+                <button onclick="adicionarAgua(250)">+ 250ml</button>
+                <button onclick="adicionarAgua(400)">+ 400ml</button>
+                <input type="number" id="agua-custom" placeholder="Valor (ml)">
+            </div>
+
+            <div class="button-container">
+                <button onclick="adicionarAguaCustom()">Adicionar</button>
+                <button onclick="resetarAgua()">Resetar</button>
+            </div>  
         </div>
         <!-- Beba agua -->
         <div class="box">
             <h2>Lembre-se de beber água</h2>
-            <div class="icons">
-                <a href="lembrete.html">
-                    <img src="lembrete.png" alt="Imagem do Post">       
+            <p>Defina o tempo para receber a notificação:</p>
+            <div class="link-post">
+                <a href="post.html?slug=importancia-da-hidratacao">
+                    <img src="img/post2.jpg" alt="Imagem do Post">
+                    <span>A Importância da Hidratação</span>
                 </a>
             </div>
+            <div class="input-lembre">
+                <label><input type="number" id="horas" min="0" placeholder="Horas"></label>
+                <label><input type="number" id="minutos" min="0" placeholder=" Minutos"></label>
+                <label><input type="number" id="segundos" min="0" placeholder="Segundos"></label>
+            </div>
+            <br>
+            <button class="botao-resultado" onclick="agendarNotificacao()">Agendar</button>
         </div><!-- FIM Beba agua -->
         <!-- Calorias -->
         <!-- Calculadora de Gasto Calórico -->
         <div class="box2">
             <h2>Calculadora de Gasto Calórico</h2>
-            <div class="icons">
-                <a href="calorias.html">
-                    <img src="calorias.png" alt="Imagem do Post">       
+            <p> Saiba como está o seu consumo calórico por dia:</p>
+            <div class="link-post">
+                <a href="post.html?slug=gasto-calorico-diario">
+                    <img src="img/post3.jpg" alt="Imagem do Post">
+                    <span>Como é calculado o gasto calórico diário?</span>
                 </a>
             </div>
-        </div>
-        <div class="box2">
-            <h2>Ficha de treino</h2>
-            <div class="icons">
-                <a href="treino.html">
-                    <img src="ficha.png" alt="Imagem do Post">       
-                </a>
-            </div>
+            <form id="calculoForm">
+                <input type="number" id="idade-calorias" placeholder="Idade" required>
+                <input type="number" id="peso-calorias" placeholder="Peso (kg)" required>
+                <input type="number" id="altura-calorias" placeholder="Altura (cm)" required>
+                <div class="selecionar">
+                    <select id="sexo-calorias">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                    <select id="atividade-calorias">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Levemente ativo</option>
+                        <option value="1.55">Moderadamente ativo</option>
+                        <option value="1.725">Altamente ativo</option>
+                        <option value="1.9">Extremamente ativo</option>
+                    </select>
+                </div>
+                <button class="botao-resultado" type="button" onclick="calcularGastoCalorico()">Calcular</button>
+            </form>
+            <p id="resultado-calorias"></p>
         </div>
         <!-- FIM Calorias -->
         <!-- QUIZ-->
