@@ -52,7 +52,6 @@
         }
 
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-
         h2 {
             font-size: 16px;
             /* Menor que antes para um visual mais equilibrado */
@@ -624,7 +623,8 @@
         }
         .icons img {
             margin: 20px;
-            width: 80px;
+            width: 100px;
+            height: 100px;
             
             transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
         }
