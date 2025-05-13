@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap');
+
 /* Define as variáveis globais para o modo claro */
 :root {
   --bg-color: #ffffff; /* Cor de fundo */
@@ -67,14 +67,14 @@ p {
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-color);
   margin-bottom: 10px;
   text-align: center;
   position: relative;
   padding-bottom: 6px;
-  font-family: "Big Shoulders", sans-serif;
+  font-family: Arial, sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -628,6 +628,7 @@ input::placeholder {
 .quiz-container img {
   margin: 10px;
   width: 40px; /* Define o tamanho original como 80% */
+  height: 40px;
   transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
 }
 
@@ -781,3 +782,5 @@ progress::-webkit-progress-value {
   font-size: 14px;
   color: #868686;
 }
+
+

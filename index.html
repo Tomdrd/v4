@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-HF1H65STC1');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HF1H65STC1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Estética e Saúde Academia">
@@ -22,15 +26,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
     <link rel="manifest" href="manifest.json">
-    
     <link rel="stylesheet" href="style.css">
     <title>Academia Estética e Saúde</title>
-    
 </head>
 
 <body>
     <header>
-        <a href="index.html"><img src="logo.webp" alt="Logo"></a>  
+        <a href="index.html"><img src="logo.webp" alt="Logo"></a>
         <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <nav id="menu">
             <a href="login/login.html">Login</a>
@@ -39,7 +41,8 @@
         </nav>
     </header>
 
-    <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
+    <div class="container">
+        <!-- IMPORTANTE Abraça todo mundo-->
 
         <!-- Frase do Dia -->
         <div class="box">
@@ -52,7 +55,7 @@
             <h2>Calculadora de IMC</h2>
             <div class="icons">
                 <a href="imc.html">
-                    <img src="imc.webp" alt="Imagem do Post" width="100" height="100">       
+                    <img src="imc.webp" alt="Imagem do Post" width="100" height="100">
                 </a>
             </div>
 
@@ -64,7 +67,7 @@
             <h2>Contador de água</h2>
             <div class="icons">
                 <a href="agua.html">
-                    <img src="agua.webp" alt="Imagem do Post"  width="100" height="100">       
+                    <img src="agua.webp" alt="Imagem do Post" width="100" height="100">
                 </a>
             </div>
         </div>
@@ -73,7 +76,7 @@
             <h2>Lembre-se de beber água</h2>
             <div class="icons">
                 <a href="lembrete.html">
-                    <img src="lembrete.webp" alt="Imagem do Post"  width="100" height="100">       
+                    <img src="lembrete.webp" alt="Imagem do Post" width="100" height="100">
                 </a>
             </div>
         </div><!-- FIM Beba agua -->
@@ -83,7 +86,7 @@
             <h2>Calculadora de Gasto Calórico</h2>
             <div class="icons">
                 <a href="calorias.html">
-                    <img src="calorias1.webp" alt="Imagem do Post"  width="100" height="100">       
+                    <img src="calorias1.webp" alt="Imagem do Post" width="100" height="100">
                 </a>
             </div>
         </div>
@@ -91,7 +94,7 @@
             <h2>Ficha de treino</h2>
             <div class="icons">
                 <a href="treino.html">
-                    <img src="ficha.webp" alt="Imagem do Post"  width="100" height="100">       
+                    <img src="ficha.webp" alt="Imagem do Post" width="100" height="100">
                 </a>
             </div>
         </div>
@@ -102,23 +105,17 @@
                 <h2>Quiz de Emoções</h2>
                 <p>Como você está se sentindo hoje?</p>
                 <div>
-                    <img src="animado.webp" alt="Animado" class="emoji" title="Estou animado!" onclick="calculateResult('animado')">
-                    <img src="neutro.webp" alt="Neutro" class="emoji" title="Estou neutro." onclick="calculateResult('neutro')">
-                    <img src="cansado.webp" alt="Cansado" class="emoji" title="Estou cansado." onclick="calculateResult('cansado')">
-                    <img src="triste.webp" alt="Triste" class="emoji" title="Estou triste." onclick="calculateResult('triste')">
+                    <img width="40px" height="40px" src="animado.webp" alt="Animado" class="emoji" title="Estou animado!"
+                        onclick="calculateResult('animado')">
+                    <img width="40px" height="40px" src="neutro.webp" alt="Neutro" class="emoji" title="Estou neutro."
+                        onclick="calculateResult('neutro')">
+                    <img width="40px" height="40px" src="cansado.webp" alt="Cansado" class="emoji" title="Estou cansado."
+                        onclick="calculateResult('cansado')">
+                    <img width="40px" height="40px" src="triste.webp" alt="Triste" class="emoji" title="Estou triste."
+                        onclick="calculateResult('triste')">
 
-                    <div>
-
-                    </div>
-                    <div style="display: none;">
-                        <label>O que ocupa seus pensamentos ultimamente?</label><br>
-                        <select id="question2">
-                            <option value="futuro">Futuro</option>
-                            <option value="familia">Família</option>
-                            <option value="trabalho">Trabalho</option>
-                            <option value="lembrancas">Lembranças do passado</option>
-                        </select>
-                    </div>
+                <div>
+                </div>
                 </div>
                 <p id="result" style="font-size: 16px; font-style: italic;"></p>
             </div>
