@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap');
 /* Define as variáveis globais para o modo claro */
 :root {
   --bg-color: #ffffff; /* Cor de fundo */
@@ -14,7 +15,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #1f1f1f; /* Cor de fundo */
-    --text-color: #f8f8f8; /* Cor do texto */
+    --text-color: #868686; /* Cor do texto */
     --header-bg: #333333; /* Cor do cabeçalho */
     --link-color: #e6951f; /* Cor dos links */
     --progress-bar-color: #527ef7; /* Cor da barra de progresso */
