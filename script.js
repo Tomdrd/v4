@@ -337,11 +337,11 @@ function renderizarExercicios() {
       <strong>${ex.nome}</strong>
 ${ex.imagem ? `<img src="${ex.imagem}" style="max-width:100%; border-radius:8px; margin-bottom:10px;">` : ""}
       <div class="linha-inputs">
-        <img src="serie.png" alt="Séries">
+        <img src="serie.webp" alt="Séries">
         <input type="number" placeholder="Série"  value="${ex.series}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'series', this.value)">
-        <img src="repeat.png" alt="Repetições">
+        <img src="repeat.webp" alt="Repetições">
         <input type="number" placeholder="Repetições" value="${ex.repeticoes}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'repeticoes', this.value)">
-        <img src="peso.png" alt="Carga">
+        <img src="peso.webp" alt="Carga">
         <input type="text" placeholder="Peso" value="${ex.carga}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'carga', this.value)">
       </div>
       <label><input type="text" class="sem-borda" placeholder="Observação" value="${ex.obs}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'obs', this.value)"></label>

@@ -9,6 +9,7 @@
   --button-bg: #f8a025; /* Cor dos botões */
   --button-hover-bg: #e6951f; /* Cor dos botões ao passar o mouse */
   color-scheme: light dark; /* Suporte a modos claro e escuro */
+  --bg-color-box: #ffffff71;
 }
 
 /* Define as variáveis para o modo escuro */
@@ -21,6 +22,7 @@
     --progress-bar-color: #527ef7; /* Cor da barra de progresso */
     --button-bg: #444444; /* Cor dos botões */
     --button-hover-bg: #666666; /* Cor dos botões ao passar o mouse */
+    --bg-color-box: #0000004f;
   }
 }
 
@@ -143,6 +145,7 @@ nav a:hover {
 
 .box,
 .box2 {
+  background-color: var(--bg-color-box);
   margin: 20px 0;
   padding: 15px;
   border: 1px solid #e6e3e333;
@@ -568,17 +571,23 @@ input::placeholder {
   font-weight: bold; /* Deixa o texto em negrito */
 }
 .link-post a {
-  color: #f8a025; /* Cor do link */
+  color: #868686;
   text-decoration: none; /* Remove o sublinhado */
   font-weight: bold; /* Deixa o texto em negrito */
   transition: color 0.3s ease; /* Transição suave para hover */
+
+    display: block;
+  text-align: center; /* Centraliza o texto */
 }
 
 .link-post a:hover {
-  color: #e6951f; /* Cor de destaque ao passar o mouse */
-  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+  text-decoration: none; /* Adiciona sublinhado ao passar o mouse */
+   color: #868686; /* Cor do link */
 }
 .link-post {
+  background-color: var(--bg-color-box);
+  border: 1px solid #e6e3e333;
+  padding: 10px; 
   position: relative;
   display: inline-block;
   width: 100%; /* Ajuste conforme necessário */
@@ -587,13 +596,6 @@ input::placeholder {
   overflow: hidden;
   border-radius: 10px; /* Bordas arredondadas */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-}
-
-.link-post a {
-  display: block;
-  text-decoration: none; /* Remove o sublinhado */
-  color: inherit; /* Mantém a cor do texto */
-  text-align: center; /* Centraliza o texto */
 }
 
 .link-post img {
@@ -610,7 +612,6 @@ input::placeholder {
 .link-post span {
   display: block;
   margin-top: 10px; /* Espaçamento entre a imagem e o texto */
-  color: #f8a025; /* Cor do texto */
   font-size: 18px;
   font-weight: bold;
   text-align: center;
@@ -664,14 +665,12 @@ input::placeholder {
 }
 
 #nomeTreino {
-  border: 1px solid #e6e3e333;
+  border: 1px solid #868686;
   border-radius: 8px;
 }
 #diaSemana {
   padding: 10px;
-  border: 1px solid #e6e3e333;
   border-radius: 8px;
-  background-color: #1f1f1f;
   color: #999;
   margin: 5px;
 }
@@ -686,7 +685,7 @@ input::placeholder {
   align-items: center;
 }
 .exercicio.concluido strong {
-  color: #e6e3e333;
+  color: #868686;
 }
 .checkbox-btn {
   display: inline-block;
@@ -717,13 +716,12 @@ input::placeholder {
   flex: 1;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #e6e3e333;
+  border: 1px solid #868686;
   text-align: center;
 }
 .exercicio strong {
   font-size: 1.3em;
   margin: 10px 0 15px;
-  color: #f8a025;
 }
 button {
   background: #f8a025;
@@ -782,5 +780,10 @@ progress::-webkit-progress-value {
   font-size: 14px;
   color: #868686;
 }
+
+
+
+
+
 
 
