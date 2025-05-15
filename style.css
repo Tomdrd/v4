@@ -1,824 +1,233 @@
-/* Define as variáveis globais para o modo claro */
-:root {
-  --bg-color: #ffffff; /* Cor de fundo */
-  --text-color: #000000; /* Cor do texto */
-  --header-bg: #f8a025; /* Cor do cabeçalho */
-  --link-color: #f8a025; /* Cor dos links */
-  --progress-bar-color: #f8a025; /* Cor da barra de progresso */
-  --button-bg: #f8a025; /* Cor dos botões */
-  --button-hover-bg: #e6951f; /* Cor dos botões ao passar o mouse */
-  color-scheme: light dark; /* Suporte a modos claro e escuro */
-  --bg-color-box: #ffffff71;
-  --br-box-100: #ffffff;
-}
-
-/* Define as variáveis para o modo escuro */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #1f1f1f; /* Cor de fundo */
-    --text-color: #9c9c9c; /* Cor do texto */
-    --header-bg: #333333; /* Cor do cabeçalho */
-    --link-color: #e6951f; /* Cor dos links */
-    --progress-bar-color: #527ef7; /* Cor da barra de progresso */
-    --button-bg: #444444; /* Cor dos botões */
-    --button-hover-bg: #666666; /* Cor dos botões ao passar o mouse */
-    --bg-color-box: #0000004f;
-    --br-box-100: #000000;
-  }
-}
-
+        :root {
+            color-scheme: light dark;
+        }
+        
 body {
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-  width: 100vw;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+    
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url("bg.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-header {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-header, #f8a025);
-  color: white;
-  position: relative;
-}
-header img {
-  height: 40px; /* Tamanho padrão da logo para dispositivos menores */
-  margin-left: 10px;
-  margin-top: 5px;
-  min-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
-  object-fit: contain; /* Ajusta a imagem para caber no espaço disponível */
+h1 {
+    text-align: none;
+    color: #868686;
 }
 p {
-  font-size: large;
-  color: var(--text-color);
-  line-height: 1.6;
-  margin: 10px 0;
-  text-align: justify;
-  text-align: center;
+    color: #868686;
+    line-height: 1.8;
+    font-size: large;
 }
-
+a {
+    text-decoration: none;
+    color: #f8a025;
+}
 h2 {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-color);
-  margin-bottom: 10px;
-  text-align: center;
-  position: relative;
-  padding-bottom: 6px;
-  font-family: Arial, sans-serif;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+    color: #f8a025;
+    text-decoration: none;
 }
-
-h2::after {
-  content: "";
-  width: 50px;
-  height: 3px;
-  background-color: var(--link-color);
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 2px;
-  opacity: 0.9;
+.post {
+    padding: 10px;
 }
-
+.post img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px; /* Bordas arredondadas para a imagem */
+    margin-top: 0; /* Espaçamento acima da imagem */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar a imagem */
+}
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-header, #f8a025);
+    color: white;
+    position: relative;
+}
+header img {
+            height: 50px; /* Tamanho padrão da logo para dispositivos menores */
+            margin-left: 10px;
+            min-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+            object-fit: contain; /* Ajusta a imagem para caber no espaço disponível */
+        }
+ 
 nav {
-  display: none;
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
 
 nav a {
-  display: block;
-  padding: 10px 2px 10px 20px;
-  color: #141414;
-  text-decoration: none;
+    display: block;
+    padding: 10px 2px 10px 20px;
+    color: #141414;
+    text-decoration: none;
 }
 
 nav a:hover {
-  background-color: #e6e3e333;
+    background-color: #e6e3e333;
 }
+
 
 .menu-icon {
-  margin-right: 30px;
-  font-size: 24px;
-  cursor: pointer;
-  color: black;
-}
-#menu {
-  display: none; /* Menu oculto por padrão */
-  flex-direction: column;
-  background-color: #f8a025;
-  position: absolute;
-  top: 50px;
-  right: 0;
-  width: 150px;
-  padding: 10px 0 10px;
-  margin: 0 0;
-}
-
-#menu.active {
-  display: flex; /* Exibe o menu quando a classe 'active' é adicionada */
+    margin-right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
 }
 
 .container {
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-  padding: 0 0 20px;
+    margin-top: 0 auto;
+    width: 90%;
+    max-width: 600px;
+    padding-bottom: 40px;
+}
+#posts-container {
+    margin-top: 20px;
+}
+.post-date {
+    font-size: 0.9rem; /* Tamanho menor para diferenciar da fonte principal */
+    color: gray; /* Cor cinza para um destaque sutil */
+    font-style: italic; /* Estilo itálico para diferenciar do texto comum */
+    margin-bottom: 10px; /* Espaçamento abaixo da data */
+    display: block; /* Garante que a data fique em uma linha separada */
+    text-align: left; /* Alinha a data à esquerda */
+}
+#post-container img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do container */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Bordas arredondadas para a imagem */
+    margin-top: 15px; /* Espaçamento acima da imagem */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar a imagem */
+}
+li {
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #868686; /* Cor do texto */
+    line-height: 1.5;
+    margin-bottom: 20px; /* Espaçamento entre os itens */
+    list-style-type: none; /* Remove os pontinhos (marcadores) */
+}
+ul, ol {
+    padding-left: 20px; /* Ajusta o recuo interno da lista */
+    margin-left: 0; /* Remove o recuo externo */
+}
+#menu {
+    display: none; /* Menu oculto por padrão */
+    flex-direction: column;
+    background-color: #f8a025;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100px;
+    padding: 10px 0 10px;
+    margin: 0 0;
+}
+
+#menu.active {
+    display: flex; /* Exibe o menu quando a classe 'active' é adicionada */
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #000000;
+}
+        /* compartilhar */
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .share-button {
+            align-items: center;
+            width: auto;
+            gap: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: white;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .share-button img {
+            vertical-align: middle;
+        }
+
+        .share-button.whatsapp {
+            border: 1px solid #29a71a;
+            /* Cor da logo do WhatsApp */
+            border-radius: 20px;
+            background: none;
+            color: #29a71a;
+        }
+
+        .share-button.whatsapp:hover {
+            background-color: #29a71a;
+            color: white;
+        }
+
+        .share-button.facebook {
+            border: 1px solid #1877F2;
+            /* Cor da logo do Facebook */
+            color: #1877F2;
+            border-radius: 20px;
+            background: none;
+        }
+
+        .share-button.facebook:hover {
+            background-color: #1877F2;
+            color: white;
+        }
+
+        .share-button.email {
+            border: 1px solid #ff2147;
+            /* Cor cinza */
+            color: #ff2147;
+            border-radius: 20px;
+            background: none;
+        }
+
+        .share-button.email:hover {
+            background-color: #ff2147;
+            color: white;
+        }
+
+        .share-button.twitter {
+            border: 1px solid #636363;
+            /* Cor da logo do Twitter */
+            color: #ffffff;
+            border-radius: 20px;
+            background: none;
+        }
+
+        .share-button.twitter:hover {
+            background-color: #000000;
+            border: 1px solid #000000;
+            /* Cor da logo do Twitter */
+            color: white;
+        }
+        
+        /* remove o quadro azul */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-.box,
-.box2 {
-  background-color: var(--bg-color-box);
-  margin: 20px 0;
-  padding: 15px;
-  border: 1px solid #e6e3e333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.input-imc {
-  width: 100%;
-  display: inline-block;
-  gap: 10px;
-  color: #dc3545;
-}
-
-.input-lembre {
-  display: inline-block;
-  gap: 10px;
-}
-
-input,
-button {
-  width: 90%;
-  padding: 10px;
-  margin: 5px 0;
-}
-
-.button-container {
-  display: flex;
-  gap: 10px;
-  /* Espaçamento entre os botões */
-}
-
-button {
-  text-shadow: 0px 1px 0px #ffee66;
-  background-color: #f8a025;
-  color: rgb(0, 0, 0);
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 10px;
-  /* Bordas arredondadas */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  /* Sombra */
-  transition: background-color 0.3s, color 0.3s;
-  /* Transição suave */
-}
-
-button:active {
-  position: relative;
-  top: 1px;
-}
-
-.progress-container {
-  width: 100%;
-  background-color: #ddd;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  position: relative;
-  /* Adicionado para posicionamento absoluto do texto */
-  text-align: center;
-  /* Centraliza o texto horizontalmente */
-}
-
-.progress-bar {
-  height: 40px;
-  background: linear-gradient(to right, #ffffff, #527ef7);
-  /* Gradiente de cor */
-  width: 0%;
-  position: absolute;
-  /* Adicionado para posicionamento do texto */
-  top: 0;
-  left: 0;
-}
-
-#progress-text {
-  position: relative;
-  z-index: 1;
-  color: #000000;
-  font-weight: bold;
-  line-height: 40px;
-  /* Alinha verticalmente o texto */
-}
-
-.progress-bar span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-weight: bold;
-}
-
-footer {
-  width: 100%;
-  background: #1f2022;
-  color: white;
-  text-align: center;
-}
-
-.sobre {
-  padding: 15px;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.social-icons a {
-  text-decoration: none;
-  font-size: 14px;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.social-icons a:hover {
-  color: #8a8a8a;
-}
-
-#resultadoIMC {
-  font-size: 16px;
-  font-weight: normal;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 0;
-  /* Bordas arredondadas */
-  text-align: center;
-  width: 180px;
-  margin: 10px auto;
-  /* Centraliza horizontalmente */
-}
-
-.abaixo-do-peso {
-  border-bottom: 3px solid #dc3545;
-  width: 180px;
-}
-
-.peso-normal {
-  border-bottom: 3px solid #28a745;
-  width: 180px;
-}
-
-.sobrepeso {
-  border-bottom: 3px solid #ffc107;
-  width: 180px;
-}
-
-.obesidade {
-  border-bottom: 3px solid #dc3545;
-  width: 180px;
-}
-
-.info-icon.abaixo-do-peso {
-  background-color: #dc3545;
-  color: white;
-}
-
-.info-icon.peso-normal {
-  background-color: #28a745;
-  color: white;
-}
-
-.info-icon.sobrepeso {
-  background-color: #ffc107;
-  color: black;
-}
-
-.info-icon.obesidade {
-  background-color: #dc3545;
-  color: white;
-}
-
-.info-icon {
-  /* botao botão */
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #6e6e6e7e;
-  color: var(--text-color);
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-  margin-right: 3px;
-}
-
-.info-text {
-  display: none;
-  background-color: var(--br-box-100);
-  color: #6d6d6d;
-  padding: 20px;
-  border-radius: 10px;
-  position: absolute;
-  right: 130px;
-  z-index: 3;
-  width: 200px;
-  font-size: 16px;
-  text-align: left;
-  font-style: italic;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.info-container {
-  position: absolute;
-  display: inline-block;
-  width: 200px;
-}
-
-.meta-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  /* Espaçamento entre o rótulo e o campo de entrada */
-}
-
-.botao-resultado,
-.botao-calcular,
-.botao-quiz {
-  width: 60%;
-}
-
-label {
-  color: #9c9c9c;
-}
-
-.meta-container label {
-  margin: 0;
-  color: #999;
-}
-
-.meta-container input {
-  flex: 1;
-}
-.result {
-  font-size: 18px;
-}
-.quiz-p {
-  margin-bottom: 30px;
-}
-#question1,
-#question2 {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #f8a025;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-  margin: 10px 0 20px;
-}
-
-input {
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #f8a025;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-}
-
-input:focus {
-  border-color: #ff7b00;
-  outline: none;
-}
-
-input::placeholder {
-  color: #999;
-  font-style: italic;
-}
-
-.report-error {
-  font-size: 12px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.report-error a {
-  display: inline-block;
-  color: #c5c5c5;
-  text-decoration: none;
-  gap: 5px;
-  /* Espaçamento entre o ícone e o texto */
-}
-
-.report-error a:hover {
-  color: #8a8a8a;
-}
-
-.report-error img {
-  vertical-align: middle;
-}
-
-/* compartilhar */
-.share-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.share-button {
-  align-items: center;
-  width: auto;
-  gap: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: white;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.share-button img {
-  vertical-align: middle;
-}
-
-.share-button.whatsapp {
-  background: #1f1f1f;
-  border: 1px solid #e6e3e333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.share-button.whatsapp:hover {
-  background-color: #29a71a;
-  color: white;
-}
-
-.share-button.facebook {
-  background: #1f1f1f;
-  border: 1px solid #e6e3e333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.share-button.facebook:hover {
-  background-color: #1877f2;
-  color: white;
-}
-
-.share-button.email {
-  background: #1f1f1f;
-  border: 1px solid #e6e3e333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.share-button.email:hover {
-  background-color: #ff2147;
-  color: white;
-}
-
-.share-button.twitter {
-  background: #1f1f1f;
-  border: 1px solid #e6e3e333;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.share-button.twitter:hover {
-  background-color: #1877f2;
-  border: 1px solid #e6e3e333;
-  /* Cor da logo do Twitter */
-  color: white;
-}
-
-.linha {
-  height: 2px;
-  background-color: #141414;
-  margin-top: 20px;
-}
-
-.imc {
-  width: 180px;
-  border: 1px solid #9c9c9c;
-  margin-bottom: 10px;
-  border-radius: 15px;
-}
-
-.classificacao {
-  border: 1px solid #9c9c9c;
-  border-radius: 15px;
-  width: 180px;
-}
-.emoji {
-  width: 32px;
-  cursor: pointer;
-  margin: 10px;
-}
-#calculoForm {
-  width: 100%;
-  gap: 5px;
-}
-.selecionar {
-  display: flex; /* Alinha os elementos em linha */
-  gap: 5px; /* Adiciona espaçamento de 5px entre os elementos */
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  display: inline-block;
-}
-.selecionar select {
-  margin: 0 5px;
-  padding: 10px;
-  border: 1px solid #f8a025;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: all 0.3s ease-in-out;
-}
-.sexo-calorias {
-  width: 40%;
-}
-#atividade-calorias {
-  width: 55%;
-}
-.bold-number {
-  font-weight: bold; /* Deixa o texto em negrito */
-}
-.link-post a {
-  color: #9c9c9c;
-  text-decoration: none; /* Remove o sublinhado */
-  font-weight: bold; /* Deixa o texto em negrito */
-  transition: color 0.3s ease; /* Transição suave para hover */
-
-  display: block;
-  text-align: center; /* Centraliza o texto */
-}
-
-.link-post a:hover {
-  text-decoration: none; /* Adiciona sublinhado ao passar o mouse */
-  color: #9c9c9c; /* Cor do link */
-}
-.link-post {
-  background-color: var(--bg-color-box);
-  border: 1px solid #e6e3e333;
-  padding: 20px 10px 15px;
-  position: relative;
-  display: inline-block;
-  width: 100%; /* Ajuste conforme necessário */
-  max-width: 95%; /* Limite opcional para a largura */
-  margin: 10px auto; /* Centraliza e adiciona espaçamento */
-  overflow: hidden;
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
-}
-
-.link-post img {
-  width: calc(100% - 20px); /* Reduz a largura para considerar o padding */
-  height: 200px; /* Define a altura fixa */
-  object-fit: cover; /* Corta a imagem para preencher o contêiner sem deformar */
-  filter: grayscale(100%); /* Preto e branco */
-  transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
-  border-radius: 10px; /* Bordas arredondadas */
-  background-color: white; /* Adiciona um fundo para destacar a borda */
-  border-top: 2px solid #e6951f;
-}
-
-.link-post span {
-  display: block;
-  margin-top: 10px; /* Espaçamento entre a imagem e o texto */
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  transition: color 0.3s ease; /* Transição suave para hover */
-}
-
-.link-post:hover img {
-  filter: grayscale(0%); /* Remove o preto e branco ao passar o mouse */
-  opacity: 1; /* Remove a transparência ao passar o mouse */
-}
-
-.link-post:hover span {
-  color: #e6951f; /* Cor de destaque ao passar o mouse */
-}
-.quiz-container img {
-  margin: 10px;
-  width: 40px; /* Define o tamanho original como 80% */
-  height: 40px;
-  transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
-}
-
-.quiz-container img:hover {
-  transform: scale(1.3); /* Aumenta o tamanho em 10% */
-}
-.icons img {
-  margin: 20px;
-  width: 90px;
-  height: 90px;
-
-  transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
-}
-
-.icons:hover {
-  transform: scale(1.09); /* Aumenta o tamanho em 10% */
-  transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
-}
-.icons:active {
-  position: relative;
-  top: 2px;
-}
-.treino-container {
-  max-width: 700px;
-  margin: auto;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-#dia-treino {
-  border: 1px solid #e6e3e333;
-  display: flex;
-  gap: 10px;
-  width: 100%;
-  padding: 10px; /* opcional, só pra dar um respiro nas bordas */
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border-radius: 8px;
-}
-
-#nomeTreino {
-  border: 1px solid #9c9c9c;
-  border-radius: 8px;
-}
-#diaSemana {
-  padding: 10px;
-  border-radius: 8px;
-  color: #9c9c9c;
-  margin: 5px;
-  background-color: #0d0d0d;
-}
-.exercicio {
-  border: 1px solid #e6e3e333;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px 0;
-  transition: opacity 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.exercicio.concluido strong {
-  color: #9c9c9c;
-}
-.checkbox-btn {
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: #f8a025;
-  color: rgb(0, 0, 0);
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  font-size: 1em;
-  width: 150px;
-
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra igual */
-  border-radius: 10px; /* Bordas arredondadas igual */
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
-  border: none;
-}
-.checkbox-btn.checked {
-  background-color: #28a745;
-  color: rgb(255, 255, 255); /* Mesma cor dos outros botões */
-  border-radius: 10px; /* Bordas arredondadas igual */
-  font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
-  border: none;
-}
-.linha-inputs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-  align-items: center;
-}
-.linha-inputs img {
-  width: 20px;
-  height: 20px;
-}
-.linha-inputs input {
-  flex: 1;
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #9c9c9c;
-  text-align: center;
-}
-.exercicio strong {
-  font-size: 1.3em;
-  margin: 10px 0 15px;
-}
-
-#mensagemParabens {
-  font-weight: bold;
-  color: #9c9c9c;
-  text-align: center;
-  margin-top: 15px;
-}
-
-input.sem-borda {
-  width: 300px;
-  align-items: left;
-  border-radius: 15px;
-  text-align: center;
-  border: 1px solid #9c9c9c;
-  outline: none; /* remove o contorno azul ao clicar */
-  background: transparent; /* opcional: fundo transparente */
-  padding: 5px;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-.progress-container {
-  margin: 20px 0;
-  text-align: center;
-}
-
-progress {
-  width: 100%;
-  height: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-  appearance: none;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #e6e3e3;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
-  background-color: #f8a025;
-  border-radius: 10px;
-}
-
-#progressText {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #9c9c9c;
-}
-
-/* remove o quadro azul */
-button:focus,
-input:focus,
-select:focus,
-textarea:focus,
-a:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-button,
-input,
-select,
-textarea,
-a {
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-focus-ring-color: transparent !important;
-}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0 !important;
