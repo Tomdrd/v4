@@ -1,4 +1,3 @@
-
 /* Define as variáveis globais para o modo claro */
 :root {
   --bg-color: #ffffff; /* Cor de fundo */
@@ -17,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #1f1f1f; /* Cor de fundo */
-    --text-color: #9C9C9C; /* Cor do texto */
+    --text-color: #9c9c9c; /* Cor do texto */
     --header-bg: #333333; /* Cor do cabeçalho */
     --link-color: #e6951f; /* Cor dos links */
     --progress-bar-color: #527ef7; /* Cor da barra de progresso */
@@ -29,7 +28,6 @@
 }
 
 body {
-
   font-family: Arial, sans-serif;
   margin: 0 auto;
   padding: 0;
@@ -53,7 +51,6 @@ body::before {
   background-repeat: no-repeat;
   z-index: -1;
 }
-
 
 header {
   width: 100%;
@@ -192,7 +189,7 @@ button {
 }
 
 button {
-  text-shadow:0px 1px 0px #ffee66;
+  text-shadow: 0px 1px 0px #ffee66;
   background-color: #f8a025;
   color: rgb(0, 0, 0);
   border: none;
@@ -207,8 +204,8 @@ button {
 }
 
 button:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
 .progress-container {
@@ -389,7 +386,7 @@ footer {
 }
 
 label {
-  color: #9C9C9C;
+  color: #9c9c9c;
 }
 
 .meta-container label {
@@ -541,13 +538,13 @@ input::placeholder {
 
 .imc {
   width: 180px;
-  border: 1px solid #9C9C9C;
+  border: 1px solid #9c9c9c;
   margin-bottom: 10px;
   border-radius: 15px;
 }
 
 .classificacao {
-  border: 1px solid #9C9C9C;
+  border: 1px solid #9c9c9c;
   border-radius: 15px;
   width: 180px;
 }
@@ -586,23 +583,23 @@ input::placeholder {
   font-weight: bold; /* Deixa o texto em negrito */
 }
 .link-post a {
-  color: #9C9C9C;
+  color: #9c9c9c;
   text-decoration: none; /* Remove o sublinhado */
   font-weight: bold; /* Deixa o texto em negrito */
   transition: color 0.3s ease; /* Transição suave para hover */
 
-    display: block;
+  display: block;
   text-align: center; /* Centraliza o texto */
 }
 
 .link-post a:hover {
   text-decoration: none; /* Adiciona sublinhado ao passar o mouse */
-   color: #9C9C9C; /* Cor do link */
+  color: #9c9c9c; /* Cor do link */
 }
 .link-post {
   background-color: var(--bg-color-box);
   border: 1px solid #e6e3e333;
-  padding: 20px 10px 15px; 
+  padding: 20px 10px 15px;
   position: relative;
   display: inline-block;
   width: 100%; /* Ajuste conforme necessário */
@@ -664,8 +661,8 @@ input::placeholder {
   transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
 }
 .icons:active {
-	position:relative;
-	top:2px;
+  position: relative;
+  top: 2px;
 }
 .treino-container {
   max-width: 700px;
@@ -686,15 +683,15 @@ input::placeholder {
 }
 
 #nomeTreino {
-  border: 1px solid #9C9C9C;
+  border: 1px solid #9c9c9c;
   border-radius: 8px;
 }
 #diaSemana {
   padding: 10px;
   border-radius: 8px;
-  color: #9C9C9C;
+  color: #9c9c9c;
   margin: 5px;
-  background-color: #0D0D0D;
+  background-color: #0d0d0d;
 }
 .exercicio {
   border: 1px solid #e6e3e333;
@@ -707,7 +704,7 @@ input::placeholder {
   align-items: center;
 }
 .exercicio.concluido strong {
-  color: #9C9C9C;
+  color: #9c9c9c;
 }
 .checkbox-btn {
   display: inline-block;
@@ -722,15 +719,15 @@ input::placeholder {
   width: 150px;
 
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra igual */
-  border-radius: 10px;       /* Bordas arredondadas igual */
+  border-radius: 10px; /* Bordas arredondadas igual */
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   border: none;
 }
 .checkbox-btn.checked {
   background-color: #28a745;
-  color: rgb(255, 255, 255);       /* Mesma cor dos outros botões */
-  border-radius: 10px;       /* Bordas arredondadas igual */
+  color: rgb(255, 255, 255); /* Mesma cor dos outros botões */
+  border-radius: 10px; /* Bordas arredondadas igual */
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
   border: none;
@@ -749,7 +746,7 @@ input::placeholder {
   flex: 1;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #9C9C9C;
+  border: 1px solid #9c9c9c;
   text-align: center;
 }
 .exercicio strong {
@@ -757,10 +754,9 @@ input::placeholder {
   margin: 10px 0 15px;
 }
 
-
 #mensagemParabens {
   font-weight: bold;
-  color: #9C9C9C;
+  color: #9c9c9c;
   text-align: center;
   margin-top: 15px;
 }
@@ -770,7 +766,7 @@ input.sem-borda {
   align-items: left;
   border-radius: 15px;
   text-align: center;
-  border: 1px solid #9C9C9C;
+  border: 1px solid #9c9c9c;
   outline: none; /* remove o contorno azul ao clicar */
   background: transparent; /* opcional: fundo transparente */
   padding: 5px;
@@ -803,14 +799,28 @@ progress::-webkit-progress-value {
 #progressText {
   margin-top: 5px;
   font-size: 14px;
-  color: #9C9C9C;
+  color: #9c9c9c;
 }
 
-
-
-
-
-
-
-
-
+/* remove o quadro azul */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+button,
+input,
+select,
+textarea,
+a {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important;
+}
+/* remove o quadro azul FIM */
