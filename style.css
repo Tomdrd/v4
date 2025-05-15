@@ -181,6 +181,7 @@ button {
 }
 
 button {
+  text-shadow:0px 1px 0px #ffee66;
   background-color: #f8a025;
   color: rgb(0, 0, 0);
   border: none;
@@ -194,10 +195,9 @@ button {
   /* Transição suave */
 }
 
-button:hover {
-  background-color: #e6951f;
-  color: white;
-  /* Cor do texto ao passar o mouse */
+button:active {
+	position:relative;
+	top:1px;
 }
 
 .progress-container {
@@ -642,13 +642,19 @@ input::placeholder {
 }
 .icons img {
   margin: 20px;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
 
   transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
 }
-.icons img:hover {
-  transform: scale(1.3); /* Aumenta o tamanho em 10% */
+
+.icons:hover {
+  transform: scale(1.09); /* Aumenta o tamanho em 10% */
+  transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
+}
+.icons:active {
+	position:relative;
+	top:2px;
 }
 .treino-container {
   max-width: 700px;
@@ -675,8 +681,9 @@ input::placeholder {
 #diaSemana {
   padding: 10px;
   border-radius: 8px;
-  color: #999;
+  color: #9C9C9C;
   margin: 5px;
+  background-color: #0D0D0D;
 }
 .exercicio {
   border: 1px solid #e6e3e333;
@@ -695,16 +702,27 @@ input::placeholder {
   display: inline-block;
   padding: 8px 12px;
   background-color: #f8a025;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
   margin-bottom: 10px;
   cursor: pointer;
   font-size: 1em;
-  width: 200px;
+  width: 150px;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra igual */
+  border-radius: 10px;       /* Bordas arredondadas igual */
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
 }
 .checkbox-btn.checked {
   background-color: #28a745;
+  color: rgb(255, 255, 255);       /* Mesma cor dos outros botões */
+  border-radius: 10px;       /* Bordas arredondadas igual */
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+  border: none;
 }
 .linha-inputs {
   display: flex;
@@ -731,7 +749,7 @@ input::placeholder {
 
 #mensagemParabens {
   font-weight: bold;
-  color: green;
+  color: #9C9C9C;
   text-align: center;
   margin-top: 15px;
 }

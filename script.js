@@ -347,7 +347,7 @@ ${ex.imagem ? `<img src="${ex.imagem}" style="max-width:100%; border-radius:8px;
       <label><input type="text" class="sem-borda" placeholder="Observação" value="${ex.obs}" ${bloqueado ? 'disabled' : ''} onchange="atualizarCampo(${index}, 'obs', this.value)"></label>
 
       <button class="checkbox-btn ${ex.concluido ? 'checked' : ''}" onclick="marcar(${index})">
-        ${ex.concluido ? '✔ Concluído' : 'Concluído'}
+        ${ex.concluido ? 'Concluído' : 'Concluir'}
       </button>
     `;
         container.appendChild(bloco);
@@ -386,7 +386,7 @@ function finalizarTreino() {
     const treino = treinos[diaAtual];
     const todosConcluidos = treino.exercicios.length > 0 && treino.exercicios.every(e => e.concluido);
     const mensagem = document.getElementById("mensagemParabens");
-    mensagem.textContent = todosConcluidos ? `Parabéns! Você concluiu o treino de ${treino.nome}!` : "Ainda há exercícios pendentes!";
+    mensagem.innerHTML = todosConcluidos ? `Parabéns!!!<br> Você concluiu o treino de ${treino.nome}!` : "Ainda há exercícios pendentes!";
 }
 
 function novoTreino() {
@@ -424,4 +424,6 @@ function salvarLocal() {
 window.onload = () => {
     trocarDia();
 };
+
+
 
