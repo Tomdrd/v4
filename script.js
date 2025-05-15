@@ -386,7 +386,10 @@ function finalizarTreino() {
     const treino = treinos[diaAtual];
     const todosConcluidos = treino.exercicios.length > 0 && treino.exercicios.every(e => e.concluido);
     const mensagem = document.getElementById("mensagemParabens");
-    mensagem.innerHTML = todosConcluidos ? `Parabéns!!!<br> Você concluiu o treino de ${treino.nome}!` : "Ainda há exercícios pendentes!";
+    mensagem.innerHTML = todosConcluidos ? `Parabéns!<br> Você concluiu o treino de ${treino.nome}.` : "Ainda há exercícios pendentes!";
+    // Desmarcar todos como não concluído
+    treino.exercicios.forEach(e => e.concluido = false);
+    renderizarExercicios();
 }
 
 function novoTreino() {
@@ -424,6 +427,8 @@ function salvarLocal() {
 window.onload = () => {
     trocarDia();
 };
+
+
 
 
 
