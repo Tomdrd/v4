@@ -1,0 +1,176 @@
+/* Define as variáveis globais para o modo claro */
+:root {
+  --bg-color: #ffffff; /* Cor de fundo */
+  --text-color: #000000; /* Cor do texto */
+  --header-bg: #f8a025; /* Cor do cabeçalho */
+  --link-color: #f8a025; /* Cor dos links */
+  --progress-bar-color: #f8a025; /* Cor da barra de progresso */
+  --button-bg: #f8a025; /* Cor dos botões */
+  --button-hover-bg: #e6951f; /* Cor dos botões ao passar o mouse */
+  color-scheme: light dark; /* Suporte a modos claro e escuro */
+  --bg-color-box: #ffffff71;
+  --br-box-100: #ffffff;
+}
+
+/* Define as variáveis para o modo escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1f1f1f; /* Cor de fundo */
+    --text-color: #9C9C9C; /* Cor do texto */
+    --header-bg: #333333; /* Cor do cabeçalho */
+    --link-color: #e6951f; /* Cor dos links */
+    --progress-bar-color: #527ef7; /* Cor da barra de progresso */
+    --button-bg: #444444; /* Cor dos botões */
+    --button-hover-bg: #666666; /* Cor dos botões ao passar o mouse */
+    --bg-color-box: #0000004f;
+    --br-box-100: #000000;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .login-box {
+    background-color: #f2f2f2;
+  }
+
+  .google-btn {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .google-btn:hover {
+    background-color: #eaeaea;
+  }
+}
+
+/* Estilos padrão para .login-box */
+.login-box {
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    width: 90%; /* Largura padrão */
+    max-width: 500px; /* Largura máxima padrão */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media query para telas menores (mobile) */
+@media (max-width: 768px) {
+    .login-box {
+        width: 80%; /* Aumenta a largura em telas menores */
+        max-width: none; /* Remove a largura máxima para ocupar mais espaço */
+        padding: 40px; /* Aumenta o preenchimento para telas menores */
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 0 0 20px;
+}  
+
+.login-box h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 6px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: var(--link-color);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.login-box input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.login-box button {
+  width: 60%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-shadow:0px 1px 0px #ffee66;
+  background-color: #f8a025;
+  color: rgb(0, 0, 0);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra */
+  transition: background-color 0.3s, color 0.3s;
+  /* Transição suave */
+}
+
+.login-box button:hover {
+  background-color: #f8a025;
+  position:relative;
+	top:1px;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #000000;
+  border: 1px solid #ccc;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+   text-shadow:0px 1px 0px #ffee66;
+}
+
+
+
