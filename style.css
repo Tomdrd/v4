@@ -652,17 +652,12 @@ input::placeholder {
   margin: 20px;
   width: 90px;
   height: 90px;
-
   transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
 }
 
-.icons:hover {
+.icons img:hover {
   transform: scale(1.09); /* Aumenta o tamanho em 10% */
-  transition: transform 0.2s ease, width 0.3s ease; /* Transição suave para o efeito */
-}
-.icons:active {
-  position: relative;
-  top: 2px;
+
 }
 .treino-container {
   max-width: 700px;
@@ -811,3 +806,4 @@ input::-moz-focus-inner {
   border: 0 !important;
 }
 /* remove o quadro azul FIM */
+
