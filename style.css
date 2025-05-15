@@ -17,7 +17,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #1f1f1f; /* Cor de fundo */
-    --text-color: #868686; /* Cor do texto */
+    --text-color: #9C9C9C; /* Cor do texto */
     --header-bg: #333333; /* Cor do cabeçalho */
     --link-color: #e6951f; /* Cor dos links */
     --progress-bar-color: #527ef7; /* Cor da barra de progresso */
@@ -378,7 +378,7 @@ footer {
 }
 
 label {
-  color: #868686;
+  color: #9C9C9C;
 }
 
 .meta-container label {
@@ -530,13 +530,13 @@ input::placeholder {
 
 .imc {
   width: 180px;
-  border: 1px solid #868686;
+  border: 1px solid #9C9C9C;
   margin-bottom: 10px;
   border-radius: 15px;
 }
 
 .classificacao {
-  border: 1px solid #868686;
+  border: 1px solid #9C9C9C;
   border-radius: 15px;
   width: 180px;
 }
@@ -575,7 +575,7 @@ input::placeholder {
   font-weight: bold; /* Deixa o texto em negrito */
 }
 .link-post a {
-  color: #868686;
+  color: #9C9C9C;
   text-decoration: none; /* Remove o sublinhado */
   font-weight: bold; /* Deixa o texto em negrito */
   transition: color 0.3s ease; /* Transição suave para hover */
@@ -586,7 +586,7 @@ input::placeholder {
 
 .link-post a:hover {
   text-decoration: none; /* Adiciona sublinhado ao passar o mouse */
-   color: #868686; /* Cor do link */
+   color: #9C9C9C; /* Cor do link */
 }
 .link-post {
   background-color: var(--bg-color-box);
@@ -669,7 +669,7 @@ input::placeholder {
 }
 
 #nomeTreino {
-  border: 1px solid #868686;
+  border: 1px solid #9C9C9C;
   border-radius: 8px;
 }
 #diaSemana {
@@ -689,7 +689,7 @@ input::placeholder {
   align-items: center;
 }
 .exercicio.concluido strong {
-  color: #868686;
+  color: #9C9C9C;
 }
 .checkbox-btn {
   display: inline-block;
@@ -720,7 +720,7 @@ input::placeholder {
   flex: 1;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #868686;
+  border: 1px solid #9C9C9C;
   text-align: center;
 }
 .exercicio strong {
@@ -741,7 +741,7 @@ input.sem-borda {
   align-items: left;
   border-radius: 15px;
   text-align: center;
-  border: 1px solid #868686;
+  border: 1px solid #9C9C9C;
   outline: none; /* remove o contorno azul ao clicar */
   background: transparent; /* opcional: fundo transparente */
   padding: 5px;
@@ -774,8 +774,10 @@ progress::-webkit-progress-value {
 #progressText {
   margin-top: 5px;
   font-size: 14px;
-  color: #868686;
+  color: #9C9C9C;
 }
+
+
 
 
 
