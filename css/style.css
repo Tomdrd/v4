@@ -222,3 +222,14 @@ ul, ol {
             /* Cor da logo do Twitter */
             color: white;
         }
+        
+        /* remove o quadro azul */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important;
+}
+/* remove o quadro azul FIM */
