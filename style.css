@@ -218,6 +218,27 @@ button:active {
   top: 1px;
 }
 
+/* Exemplo extra para garantir aparência de botão */
+.download-btn {
+    text-shadow: 0px 1px 0px #ffee66;
+    background: #f8a025;
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+    margin: 10px 0;
+    display: inline-block;
+}
+.download-btn:active {
+  position: relative;
+  top: 1px;
+}
+
 .progress-container {
   width: 100%;
   background-color: #ddd;
@@ -391,8 +412,25 @@ footer {
 
 .botao-resultado,
 .botao-calcular,
-.botao-quiz {
+.botao-quiz,
+.google-calendar-btn {
   width: 60%;
+}
+
+.google-calendar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    margin: 10px auto;
+    cursor: pointer;
+}
+
+.calendar-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 label {
@@ -816,4 +854,9 @@ input::-moz-focus-inner {
   border: 0 !important;
 }
 /* remove o quadro azul FIM */
+ canvas {
+      margin: 30px auto;
+      display: block;
+      max-width: 400px;
+    }
 

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1" as="script">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-HF1H65STC1');
+    </script>
+
+    <meta property="og:title" content="Academia Estética e Saúde">
+    <meta property="og:description" content="Saúde, beleza e performance em um só lugar!">
+    <meta property="og:image" content="https://i.imgur.com/nIqRyA2.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="http://www.academiaesteticaesaude.fit">
+    <meta property="og:type" content="website">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Resultados da Pesquisa - Academia Estética e Saúde</title>
+</head>
+
+
+<body>
+    <header>
+        <a href="index.html"><img src="logo.webp" alt="Logo"></a>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="menu">
+            <a href="login/login.html">Login</a>
+            <a href="blog.html">Blog</a>
+            <a href="https://forms.gle/pko9Kxnaw7Ej5D3MA" target="_blank">Pesquisa</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- IMPORTANTE Abraça todo mundo-->
+
+        <div class="box">
+
+  <h1>Resultados da Pesquisa</h1>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <h2>Distribuição por Sexo</h2>
+  <canvas id="sexoChart"></canvas>
+
+  <h2>Como Conheceram o Site</h2>
+  <canvas id="origemChart"></canvas>
+
+  <h2>Notas Atribuídas ao Site</h2>
+  <canvas id="notasChart"></canvas>
+
+  <h2>O Site é Fácil de Navegar e Entender?</h2>
+<canvas id="facilidadeChart"></canvas>
+
+
+  <script>
+    // Gráfico de Pizza - Sexo
+    const sexoChart = new Chart(document.getElementById('sexoChart').getContext('2d'), {
+      type: 'pie',
+      data: {
+        labels: ['Feminino', 'Masculino', 'Outro'],
+        datasets: [{
+          data: [4, 6, 0], // Substitua pelos dados reais
+          backgroundColor: ['#f8a025', '#36a2eb', '#aaa']
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Sexo dos Participantes'
+          }
+        }
+      }
+    });
+
+    // Gráfico de Barras - Origem
+    const origemChart = new Chart(document.getElementById('origemChart').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['Indicação', 'Redes Sociais'],
+        datasets: [{
+          label: 'Número de Respostas',
+          data: [9, 1], // Substitua pelos dados reais
+          backgroundColor: '#4bc0c0'
+        }]
+      },
+      options: {
+        indexAxis: 'y',
+        plugins: {
+          title: {
+            display: true,
+            text: 'Como as Pessoas Conheceram o Site'
+          },
+          legend: {
+            display: false
+          }
+        }
+      }
+    });
+
+    // Gráfico de Linha - Notas
+    const notasChart = new Chart(document.getElementById('notasChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['6', '7', '8', '9', '10'],
+        datasets: [{
+          label: 'Frequência',
+          data: [0, 0, 0, 0, 10], // Substitua pelos dados reais
+          borderColor: '#ff6384',
+          backgroundColor: '#ff638480',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Notas Atribuídas ao Site'
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            stepSize: 1
+          }
+        }
+      }
+    });
+
+    // Gráfico de Pizza - Facilidade de Navegação
+const facilidadeChart = new Chart(document.getElementById('facilidadeChart').getContext('2d'), {
+  type: 'pie',
+  data: {
+    labels: ['Sim', 'Mais ou menos', 'Não'],
+    datasets: [{
+      data: [10, 0, 0], // Substitua pelos valores reais
+      backgroundColor: ['#8BC34A', '#FFC107', '#F44336']
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Facilidade de Navegação no Site'
+      }
+    }
+  }
+});
+
+  </script>
+
+
+<a href="respostas.csv" download class="download-btn">
+    Planílha completa (CSV)
+</a>
+
+
+</div>
+
+        <!-- FIM DO QUIZ-->
+        <!-- COMPARTILHAR-->
+        <div class="share-buttons">
+            <p>Compartilhe:</p>
+            <button class="share-button whatsapp" onclick="shareWhatsApp()">
+                <img src="whatsapp.webp" alt="WhatsApp" width="20" height="20">
+            </button>
+            <button class="share-button facebook" onclick="shareFacebook()">
+                <img src="facebook.webp" alt="Facebook" width="20" height="20">
+            </button>
+            <button class="share-button email" onclick="shareEmail()">
+                <img src="email.webp" alt="Email" width="20" height="20">
+            </button>
+            <button class="share-button twitter" onclick="shareTwitter()">
+                <img src="twitter.webp" alt="Twitter" width="20" height="20">
+            </button>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="sobre">      
+            <h2 style="color: #9C9C9C;">Redes Sociais</h2>
+            <a href="#"><img src="logo-botao-48.webp" alt="Logo footer" height="48px" width="48" title="Home"></a>
+            <div class="social-icons">
+                <a href="https://wa.me/qr/4KCWWIXJLLUVF1" target="_blank">
+                    <img src="whatsapp.webp" alt="Whatsapp" width="20" height="20"> Whatsapp
+                </a>
+                <a href="https://www.instagram.com/academia2023estetica_e_saude/?igsh=MWtpMzNiNnAxeDRsbA%3D%3D#"
+                    target="_blank">
+                    <img src="instagram.webp" alt="Instagram" width="20" height="20"> Instagram
+                </a>
+            </div>
+            <div class="linha">
+            </div>
+            <div class="report-error">
+                <a href="mailto:antonyeltonrodrigues@gmail.com">
+                    <img src="error.webp" alt="Instagram" width="14" height="14"> Reportar erro nesta página
+                </a>
+            </div>
+    </footer>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
