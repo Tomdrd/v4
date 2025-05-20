@@ -493,3 +493,31 @@ function atualizarStatusExercicios() {
   const progresso = total > 0 ? (concluidos / total) * 100 : 0;
   document.querySelector(".barra-progresso-treino").style.width = `${progresso}%`;
 }
+
+let deferredPrompt = null;
+
+// Captura o evento que o navegador dispara quando a instalação é possível
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Ativa o link no menu
+  const installLink = document.getElementById('instalarApp');
+  if (installLink) {
+    installLink.style.display = 'block'; // ou 'block', se quiser
+    installLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('Usuário aceitou instalar');
+          } else {
+            console.log('Usuário recusou');
+          }
+          deferredPrompt = null;
+        });
+      }
+    });
+  }
+});
