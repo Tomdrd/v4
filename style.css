@@ -854,9 +854,18 @@ input::-moz-focus-inner {
   border: 0 !important;
 }
 /* remove o quadro azul FIM */
- canvas {
+canvas {
       margin: 30px auto;
       display: block;
       max-width: 400px;
     }
+
+.quiz-bloqueado {
+  color: #cc0000;
+  font-weight: normal;
+  font-size: 12px;
+  display: block;
+  margin-top: 10px;
+}
+
 
