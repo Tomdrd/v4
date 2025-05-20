@@ -24,6 +24,8 @@
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=G-HF1H65STC1" as="script">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/">
     <title>Ficha de treino: Academia Estética e Saúde</title>
 </head>
 
@@ -41,6 +43,7 @@
         <div class="box">
         
             <h2>Ficha de Treino</h2>
+            
             <div id="dia-treino">
                 <select id="diaSemana" onchange="trocarDia()">
                     <option value="treino-a">Treino A</option>
@@ -127,6 +130,13 @@
     </footer>
     </div>
     <script src="script.js"></script>
+
+<div id="menu-mobile-status">
+  <div class="barra-progresso-treino"></div>
+  <div class="conteudo-menu">
+    <span id="status-exercicios">0 de 0 exercícios concluídos</span>
+  </div>
+</div>
 
 </body>
 

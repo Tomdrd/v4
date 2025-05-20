@@ -410,6 +410,7 @@ function renderizarExercicios() {
     container.appendChild(bloco);
   });
   salvarLocal();
+  atualizarStatusExercicios(); // <-- adiciona esta linha ao final
 }
 
 function adicionarExercicio() {
@@ -477,4 +478,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function salvarLocal() {
   localStorage.setItem("treinos", JSON.stringify(treinos));
+}
+
+function atualizarStatusExercicios() {
+  if (!treinos[diaAtual]) return;
+
+  const total = treinos[diaAtual].exercicios.length;
+  const concluidos = treinos[diaAtual].exercicios.filter(e => e.concluido).length;
+
+  // Atualiza o texto no menu
+  document.getElementById("status-exercicios").innerText = `${concluidos} de ${total} exercícios concluídos`;
+
+  // Atualiza a barra de progresso
+  const progresso = total > 0 ? (concluidos / total) * 100 : 0;
+  document.querySelector(".barra-progresso-treino").style.width = `${progresso}%`;
 }

@@ -868,4 +868,48 @@ canvas {
   margin-top: 10px;
 }
 
+#menu-mobile-status {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222; /* Fundo escuro */
+  color: white;
+  text-align: center;
+  padding: 10px 0 12px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 9999;
+  font-size: 14px;
+}
+
+/* Barra de progresso do menu treino */
+.barra-progresso-treino {
+  height: 4px;
+  background-color: #00cc66; /* Cor verde do botão concluído */
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.barra-progresso-treino {
+  position: relative;
+  top: -8px; /* sobe a barra visualmente */ 
+}
+
+/* Conteúdo centralizado */
+#menu-mobile-status .conteudo-menu {
+  margin-top: 5px;
+}
+
+/* Só mostrar no mobile */
+@media (max-width: 768px) {
+  #menu-mobile-status {
+    display: block;
+  }
+
+  footer {
+  padding-bottom: 50px;
+}
+}
+
 
