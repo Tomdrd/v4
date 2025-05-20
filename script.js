@@ -284,14 +284,68 @@ function shareTwitter() {
 
 // === QUIZ ===
 function calculateResult(feeling) {
+  const STORAGE_KEY_QUIZ = "respostaQuiz";
+  const agora = Date.now();
+
   const mensagens = {
-    triste: "Você parece sentir um pouco de saudade...",
-    animado: "Você está em alta energia! Aproveite para fazer algo que você ama.",
-    cansado: "Você pode estar precisando de um descanso. Tire um tempo para relaxar!",
-    padrao: "Que tal tirar um tempo para cuidar do seu bem-estar?"
+    triste: [
+      "Você parece sentir um pouco de saudade...",
+      "Dias tristes também passam. Seja gentil com você.",
+      "Lembre-se: você já superou muita coisa até aqui.",
+      "Abra espaço para o autocuidado, especialmente hoje.",
+      "Tudo bem não estar bem o tempo todo. Respire fundo."
+    ],
+    animado: [
+      "Você está em alta energia! Aproveite para fazer algo que você ama.",
+      "Use essa vibe positiva para conquistar seus objetivos!",
+      "Compartilhe sua alegria com o mundo!",
+      "Momento perfeito para começar algo novo!",
+      "Sua energia contagia! Espalhe boas vibrações!"
+    ],
+    cansado: [
+      "Você pode estar precisando de um descanso. Tire um tempo para relaxar!",
+      "Não se cobre tanto. Pausas também são produtivas.",
+      "Seu corpo está pedindo atenção. Ouça-o com carinho.",
+      "Um cochilo, uma pausa, ou um momento de silêncio pode ajudar muito.",
+      "Descanse um pouco. Você merece cuidar de si."
+    ],
+    padrao: [
+      "Que tal tirar um tempo para cuidar do seu bem-estar?",
+      "Ouça seu corpo e sua mente hoje.",
+      "Um momento de autocuidado pode fazer a diferença.",
+      "Aproveite para respirar e estar presente no agora.",
+      "Seu bem-estar importa. Reserve um tempo para você."
+    ]
   };
-  document.getElementById("result").innerText = mensagens[feeling] || mensagens.padrao;
+
+  const registro = JSON.parse(localStorage.getItem(STORAGE_KEY_QUIZ));
+
+  // Se já respondeu nas últimas 24 horas
+  if (registro && agora - registro.timestamp < 24 * 60 * 60 * 1000) {
+  const horasRestantes = Math.ceil((24 * 60 * 60 * 1000 - (agora - registro.timestamp)) / (60 * 60 * 1000));
+  document.getElementById("result").innerHTML = `
+    ${registro.mensagem}
+    <br>
+    <span class="quiz-bloqueado">*Você já respondeu hoje! Tente novamente em ${horasRestantes} hora(s).</span>
+  `;
+  return;
 }
+
+  // Seleciona uma mensagem aleatória
+  const lista = mensagens[feeling] || mensagens.padrao;
+  const mensagemAleatoria = lista[Math.floor(Math.random() * lista.length)];
+
+  // Mostra a mensagem
+  document.getElementById("result").innerText = mensagemAleatoria;
+
+  // Salva a resposta e a mensagem no armazenamento local
+  localStorage.setItem(STORAGE_KEY_QUIZ, JSON.stringify({
+    timestamp: agora,
+    resposta: feeling,
+    mensagem: mensagemAleatoria
+  }));
+}
+
 
 // === GASTO CALÓRICO ===
 function calcularGastoCalorico() {
