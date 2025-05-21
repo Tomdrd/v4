@@ -29,9 +29,10 @@
 
     <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-    <link rel="manifest" href="manifest.json">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="stylesheet" href="/style.css">
 
     <title>Academia Estética e Saúde</title>
 </head>
@@ -173,6 +174,14 @@
     </footer>
     </div>
     <script src="script.js"></script>
+
+        <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker registrado com sucesso:', reg.scope))
+      .catch(err => console.error('Erro ao registrar o Service Worker:', err));
+  }
+</script>
 
 </body>
 
