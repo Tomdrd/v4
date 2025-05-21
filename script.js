@@ -1,8 +1,41 @@
 // MENU
 function toggleMenu() {
-  var menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
+  const menu = document.getElementById("menu");
+  const icon = document.getElementById("menuIcon");
+
+  const aberto = menu.style.display === "block";
+
+  if (aberto) {
+    fecharMenu();
+  } else {
+    menu.style.display = "block";
+    setTimeout(() => {
+      menu.style.opacity = 1;
+    }, 10);
+    icon.textContent = "✖";
+
+    // Ativa o listener de clique fora
+    setTimeout(() => {
+      document.addEventListener("click", cliqueForaMenu);
+    }, 10);
+  }
+
+  function fecharMenu() {
+    menu.style.opacity = 0;
+    setTimeout(() => {
+      menu.style.display = "none";
+    }, 300);
+    icon.textContent = "☰";
+    document.removeEventListener("click", cliqueForaMenu);
+  }
+
+  function cliqueForaMenu(event) {
+    if (!menu.contains(event.target) && event.target !== icon) {
+      fecharMenu();
+    }
+  }
 }
+
 
 // === FRASE DO DIA ===
 const frases = ["A saúde é o maior presente, cultive-a bem.",
