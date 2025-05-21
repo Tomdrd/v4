@@ -402,13 +402,22 @@ function calcularGastoCalorico() {
 }
 
 // === TREINO ===
+
 let treinos = JSON.parse(localStorage.getItem("treinos")) || {};
 let diaAtual = "treino-a";
 let bloqueado = false;
+let treinosFinalizados = parseInt(localStorage.getItem("treinosFinalizados")) || 0;
+
+function atualizarContadorTreinos() {
+  document.getElementById("treinosFinalizados").innerText = treinosFinalizados;
+}
 
 function trocarDia() {
   diaAtual = document.getElementById("diaSemana").value;
   renderizarExercicios();
+    // Oculta a mensagem de parabéns ao trocar de treino
+  const mensagem = document.getElementById("mensagemParabens");
+  if (mensagem) mensagem.innerHTML = "";
 }
 
 function renderizarExercicios() {
@@ -474,8 +483,9 @@ function finalizarTreino() {
 
   if (todosConcluidos) {
 mensagem.innerHTML = `
+<img id="imgParabens" src="medal-150.webp" alt="Parabéns" style="width: 80px; height: auto; display: block; margin: 0 auto;">
  <p><span class="parabens-text">Parabéns!<br>Você concluiu o treino de ${treino.nome}.</span></p>
-<img id="imgParabens" src="parabens.webp" alt="Parabéns" style="width: 80px; height: auto; display: block; margin: 0 auto;">
+
 `;
   const img = document.getElementById('imgParabens');
   img.animate([
@@ -488,6 +498,11 @@ mensagem.innerHTML = `
     fill: 'forwards'
   });
 
+  // Incrementa o contador e salva
+    treinosFinalizados++;
+    localStorage.setItem("treinosFinalizados", treinosFinalizados);
+    atualizarContadorTreinos();
+
   } else {
     mensagem.innerHTML = "Ainda há exercícios pendentes!";
   }
@@ -495,6 +510,15 @@ mensagem.innerHTML = `
   treino.exercicios.forEach((e) => e.concluido = false);
   renderizarExercicios();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("nomeTreino").addEventListener("input", function () {
+    treinos[diaAtual].nome = this.value;
+    salvarLocal();
+  });
+  trocarDia();
+  atualizarContadorTreinos(); // <-- Adicione esta linha
+});
 
 
 function novoTreino() {
