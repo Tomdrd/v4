@@ -54,24 +54,39 @@
         <!-- IMPORTANTE Abraça todo mundo-->
 
         <div class="box">
-
   <h1>Resultados da Pesquisa</h1>
+  <p>Avaliação do uso do site – projeto de extensão em Análise e Desenvolvimento de Sistemas</p>
+  </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
+  <div class="box">
   <h2>Distribuição por Sexo</h2>
   <canvas id="sexoChart"></canvas>
+</div>
 
+<div class="box">
   <h2>Como Conheceram o Site</h2>
   <canvas id="origemChart"></canvas>
+</div>
 
+<div class="box">
   <h2>Notas Atribuídas ao Site</h2>
   <canvas id="notasChart"></canvas>
+</div>
 
+<div class="box">
   <h2>O Site é Fácil de Navegar e Entender?</h2>
-<canvas id="facilidadeChart"></canvas>
+  <canvas id="facilidadeChart"></canvas>
+</div>
 
+<div class="box">
+  <a href="respostas.csv" download class="download-btn">
+    Planílha completa (CSV)
+  </a>
+</div>
 
   <script>
     // Gráfico de Pizza - Sexo
@@ -170,16 +185,7 @@ const facilidadeChart = new Chart(document.getElementById('facilidadeChart').get
 });
 
   </script>
-
-
-<a href="respostas.csv" download class="download-btn">
-    Planílha completa (CSV)
-</a>
-
-
 </div>
-
-        <!-- FIM DO QUIZ-->
         <!-- COMPARTILHAR-->
         <div class="share-buttons">
             <p>Compartilhe:</p>
