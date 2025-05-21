@@ -623,5 +623,18 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   }
 });
+// todas as imagens com opacidade
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    img.classList.add('fade-in-img');
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', function() {
+        img.classList.add('loaded');
+      });
+    }
+  });
+});
 
 

@@ -947,6 +947,14 @@ canvas {
   70%  { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
+/* TODAS as imagens com opacidade */
+.fade-in-img {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.fade-in-img.loaded {
+  opacity: 1;
+}
 
 
 
