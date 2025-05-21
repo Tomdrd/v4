@@ -149,7 +149,7 @@ nav a:active {
   width: 180px;
   padding: 10px 0 10px;
   margin: 0 0;
-  border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;  
 }
 
 #menu.active {
@@ -208,7 +208,7 @@ button {
   border-radius: 10px;
   /* Bordas arredondadas */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-  /* Sombra */
+  /* Sombra */ 
   transition: background-color 0.3s, color 0.3s;
   /* Transição suave */
 }
@@ -220,19 +220,19 @@ button:active {
 
 /* Exemplo extra para garantir aparência de botão */
 .download-btn {
-  text-shadow: 0px 1px 0px #ffee66;
-  background: #f8a025;
-  color: #000000;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.3s;
-  margin: 10px 0;
-  display: inline-block;
+    text-shadow: 0px 1px 0px #ffee66;
+    background: #f8a025;
+    color: #000000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+    margin: 10px 0;
+    display: inline-block;
 }
 .download-btn:active {
   position: relative;
@@ -418,19 +418,19 @@ footer {
 }
 
 .google-calendar-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 16px;
-  margin: 10px auto;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 16px;
+    margin: 10px auto;
+    cursor: pointer;
 }
 
 .calendar-icon {
-  width: 20px;
-  height: 20px;
-  vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 label {
@@ -705,6 +705,7 @@ input::placeholder {
 
 .icons img:hover {
   transform: scale(1.09); /* Aumenta o tamanho em 10% */
+
 }
 .treino-container {
   max-width: 700px;
@@ -854,10 +855,10 @@ input::-moz-focus-inner {
 }
 /* remove o quadro azul FIM */
 canvas {
-  margin: 30px auto;
-  display: block;
-  max-width: 400px;
-}
+      margin: 30px auto;
+      display: block;
+      max-width: 400px;
+    }
 
 .quiz-bloqueado {
   color: #cc0000;
@@ -892,7 +893,7 @@ canvas {
 
 .barra-progresso-treino {
   position: relative;
-  top: -8px; /* sobe a barra visualmente */
+  top: -8px; /* sobe a barra visualmente */ 
 }
 
 /* Conteúdo centralizado */
@@ -907,10 +908,32 @@ canvas {
   }
 
   footer {
-    padding-bottom: 50px;
-  }
+  padding-bottom: 50px;
+}
 }
 
 #instalarApp {
   display: none; /* só será exibido se o navegador permitir instalação */
 }
+
+/* Inicialmente oculta e desloca os elementos */
+.box, .box2, .share-buttons {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Classe ativada via JS */
+.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+
+

@@ -521,3 +521,13 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   }
 });
+
+// animação
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll('.box, .box2, .share-buttons');
+    elements.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('animated');
+      }, index * 150); // Delay crescente para um efeito sequencial
+    });
+  });
