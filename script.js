@@ -564,3 +564,19 @@ window.addEventListener('beforeinstallprompt', (e) => {
       }, index * 150); // Delay crescente para um efeito sequencial
     });
   });
+
+  // animação da logo
+  document.addEventListener("DOMContentLoaded", () => {
+  const logo = document.querySelector("header a img");
+
+  if (logo) {
+    logo.addEventListener("click", (e) => {
+      logo.classList.add("logo-animada");
+
+      // Remove a classe após a animação terminar
+      logo.addEventListener("animationend", () => {
+        logo.classList.remove("logo-animada");
+      }, { once: true });
+    });
+  }
+});
