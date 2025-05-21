@@ -32,11 +32,14 @@
 <body>
     <header>
         <a href="index.html"><img src="logo.webp" alt="Logo"></a>  
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <nav id="menu">
-            <a href="login/login.html">Login</a>
-            <a href="blog.html">Blog</a>
-        </nav>
+        <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">☰</div>
+<nav id="menu" class="slide-menu">
+    <a href="login/login.html">Login</a>
+    <a href="blog.html">Blog</a>
+    <a href="resultado.html">Resultados</a>
+    <a href="https://forms.gle/pko9Kxnaw7Ej5D3MA" target="_blank">Pesquisa</a>
+    <a href="#" id="instalarApp">Acesso rápido</a>
+</nav>
     </header>
 
     <div class="container"> <!-- IMPORTANTE Abraça todo mundo-->
@@ -44,7 +47,7 @@
         
             <h2>Ficha de Treino</h2>
             
-            <div id="dia-treino">
+            <div id="dia-treino" style="display: flex; align-items: center; gap: 10px;">
                 <select id="diaSemana" onchange="trocarDia()">
                     <option value="treino-a">Treino A</option>
                     <option value="treino-b">Treino B</option>
@@ -52,7 +55,9 @@
                     <option value="treino-d">Treino D</option>
                     <option value="treino-e">Treino E</option>
                 </select>
+                
                 <input type="text" id="nomeTreino" placeholder="Nome do treino (ex: Perna)" />
+                
             </div>
             <div class="button-container">
                 <button onclick="adicionarExercicio()">Adicionar</button>
