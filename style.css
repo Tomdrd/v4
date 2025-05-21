@@ -635,7 +635,7 @@ input::placeholder {
   font-weight: bold; /* Deixa o texto em negrito */
 }
 .link-post a {
-  color: #9c9c9c;
+  color: #e6951f;
   text-decoration: none; /* Remove o sublinhado */
   font-weight: bold; /* Deixa o texto em negrito */
   transition: color 0.3s ease; /* Transição suave para hover */
@@ -669,7 +669,7 @@ input::placeholder {
   filter: grayscale(100%); /* Preto e branco */
   transition: all 0.3s ease; /* Efeito suave ao passar o mouse */
   border-radius: 10px; /* Bordas arredondadas */
-  background-color: white; /* Adiciona um fundo para destacar a borda */
+  background-color: rgb(0, 0, 0); /* Adiciona um fundo para destacar a borda */
   border-top: 2px solid #e6951f;
 }
 
