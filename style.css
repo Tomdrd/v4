@@ -803,9 +803,12 @@ input::placeholder {
 
 #mensagemParabens {
   font-weight: bold;
-  color: #9c9c9c;
   text-align: center;
   margin-top: 15px;
+}
+.parabens-text {
+  color: #f8a025;
+  font-weight: bold;
 }
 
 input.sem-borda {

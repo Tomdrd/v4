@@ -471,12 +471,31 @@ function finalizarTreino() {
   const treino = treinos[diaAtual];
   const todosConcluidos = treino.exercicios.length > 0 && treino.exercicios.every((e) => e.concluido);
   const mensagem = document.getElementById("mensagemParabens");
-  mensagem.innerHTML = todosConcluidos
-    ? `Parabéns!<br> Você concluiu o treino de ${treino.nome}.`
-    : "Ainda há exercícios pendentes!";
+
+  if (todosConcluidos) {
+mensagem.innerHTML = `
+ <p><span class="parabens-text">Parabéns!<br>Você concluiu o treino de ${treino.nome}.</span></p>
+<img id="imgParabens" src="parabens.webp" alt="Parabéns" style="width: 80px; height: auto; display: block; margin: 0 auto;">
+`;
+  const img = document.getElementById('imgParabens');
+  img.animate([
+    { transform: 'rotate(0deg)', opacity: 0 },
+    { transform: 'rotate(360deg)', opacity: 1 }
+  ], {
+    duration: 2000,
+    iterations: 1,
+    easing: 'ease-out',
+    fill: 'forwards'
+  });
+
+  } else {
+    mensagem.innerHTML = "Ainda há exercícios pendentes!";
+  }
+
   treino.exercicios.forEach((e) => e.concluido = false);
   renderizarExercicios();
 }
+
 
 function novoTreino() {
   if (confirm("Deseja iniciar um novo treino para o dia selecionado?")) {
@@ -580,3 +599,5 @@ window.addEventListener('beforeinstallprompt', (e) => {
     });
   }
 });
+
+
