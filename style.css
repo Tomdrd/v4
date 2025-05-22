@@ -175,6 +175,7 @@ nav a:active {
   border: 1px solid #e6e3e333;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 0;
 }
 
 .input-imc {
@@ -349,62 +350,43 @@ footer {
   width: 180px;
 }
 
-.info-icon.abaixo-do-peso {
-  background-color: #dc3545;
-  color: white;
-}
-
-.info-icon.peso-normal {
-  background-color: #28a745;
-  color: white;
-}
-
-.info-icon.sobrepeso {
-  background-color: #ffc107;
-  color: black;
-}
-
-.info-icon.obesidade {
-  background-color: #dc3545;
-  color: white;
-}
-
 .info-icon {
-  /* botao botão */
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
-  background-color: #6e6e6e7e;
-  color: var(--text-color);
-  text-align: center;
-  line-height: 20px;
-  font-size: 12px;
-  cursor: pointer;
-  margin-left: 5px;
-  margin-top: 3px;
-  margin-right: 3px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  font-size: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.00);
 }
 
-.info-text {
-  display: none;
-  background-color: var(--br-box-100);
-  color: #6d6d6d;
-  padding: 20px;
-  border-radius: 10px;
-  position: absolute;
-  right: 130px;
-  z-index: 3;
-  width: 200px;
-  font-size: 16px;
-  text-align: left;
-  font-style: italic;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.info-icon.abaixo-do-peso {
+  background: #ffeaea;
+  color: #dc3545;
+  border: 1.5px solid #dc3545;
+}
+.info-icon.peso-normal {
+  background: #eaffea;
+  color: #28a745;
+  border: 1.5px solid #28a745;
+}
+.info-icon.sobrepeso {
+  background: #fffbe7;
+  color: #ffc107;
+  border: 1.5px solid #ffc107;
+}
+.info-icon.obesidade {
+  background: #ffeaea;
+  color: #dc3545;
+  border: 1.5px solid #dc3545;
 }
 
-.info-container {
-  position: absolute;
-  display: inline-block;
-  width: 200px;
+.classificacao-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .meta-container {

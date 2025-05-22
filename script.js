@@ -186,6 +186,7 @@ function calcularIMC() {
   if (!peso || !alturaCm || alturaCm <= 0) {
     resultadoDiv.innerText = "Insira valores válidos.";
     resultadoDiv.className = "";
+    document.getElementById("faixaPesoIdeal").innerText = "";
     return;
   }
 
@@ -199,37 +200,38 @@ function calcularIMC() {
     ? "Sobrepeso"
     : "Obesidade";
 
-  resultadoDiv.innerHTML = `
-    <div class="imc">IMC: ${imc.toFixed(2)}</div>
-    <div class="classificacao">${classificacao} ${getInfoIcon(classificacao)}</div>
-  `;
+resultadoDiv.innerHTML = `
+  <div class="imc">IMC: ${imc.toFixed(2)}</div>
+  <div class="classificacao-row">
+    <div class="classificacao ${classificacao.replace(/\s/g, '-').toLowerCase()}">${classificacao}</div>
+    <button type="button" class="info-icon ${classificacao.replace(/\s/g, '-').toLowerCase()}" onclick="mostrarObsIMC('${classificacao}')">?</button>
+  </div>
+`;
 
   resultadoDiv.className = "";
   if (classificacao === "Abaixo do peso") resultadoDiv.classList.add("abaixo-do-peso");
   else if (classificacao === "Peso normal") resultadoDiv.classList.add("peso-normal");
   else if (classificacao === "Sobrepeso") resultadoDiv.classList.add("sobrepeso");
   else if (classificacao === "Obesidade") resultadoDiv.classList.add("obesidade");
+
+  // Faixa de peso ideal (IMC entre 18.5 e 24.9)
+  const pesoMin = 18.5 * (altura * altura);
+  const pesoMax = 24.9 * (altura * altura);
+  document.getElementById("faixaPesoIdeal").innerText =
+    `Faixa de peso ideal: ${pesoMin.toFixed(1)} kg a ${pesoMax.toFixed(1)} kg`;
 }
 
-function getInfoIcon(classificacao) {
+function mostrarObsIMC(classificacao) {
   const infoTexts = {
     "Abaixo do peso": "Estar abaixo do peso pode levar a deficiências nutricionais e problemas de saúde.",
     "Peso normal": "Estar com o peso normal reduz o risco de várias doenças e promove o bem-estar geral.",
     "Sobrepeso": "Estar com sobrepeso pode aumentar o risco de doenças cardíacas, diabetes e outras condições.",
-    "Obesidade": "A obesidade está associada a um maior risco de doenças graves, incluindo diabetes tipo 2 e doenças cardíacas.",
+    "Obesidade": "A obesidade está associada a um maior risco de doenças graves, incluindo diabetes tipo 2 e doenças cardíacas."
   };
-  return `
-    <div class="info-container">
-      <div class="info-icon" onclick="toggleInfoText(event)">?</div>
-      <div class="info-text">${infoTexts[classificacao]}</div>
-    </div>
-  `;
-}
-
-function toggleInfoText(event) {
-  const infoText = event.target.nextElementSibling;
-  infoText.style.display = infoText.style.display === "block" ? "none" : "block";
-}
+  if (infoTexts[classificacao]) {
+    alert(infoTexts[classificacao]);
+  }
+}  
 
 // === CONTADOR DE ÁGUA ===
 let totalAgua = 0;
