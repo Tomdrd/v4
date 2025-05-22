@@ -217,8 +217,9 @@ resultadoDiv.innerHTML = `
   // Faixa de peso ideal (IMC entre 18.5 e 24.9)
   const pesoMin = 18.5 * (altura * altura);
   const pesoMax = 24.9 * (altura * altura);
+  document.getElementById("faixaPesoIdeal").style.display = "block";
   document.getElementById("faixaPesoIdeal").innerText =
-    `Faixa de peso ideal: ${pesoMin.toFixed(1)} kg a ${pesoMax.toFixed(1)} kg`;
+    `Peso ideal: ${pesoMin.toFixed(1)} kg a ${pesoMax.toFixed(1)} kg`;
 }
 
 function mostrarObsIMC(classificacao) {
