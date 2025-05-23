@@ -337,21 +337,17 @@ footer {
   text-align: center; 
 }
 
-.abaixo-do-peso {
-  border-bottom: 3px solid #dc3545;
+.classificacao.abaixo-do-peso {
+  border: 1px solid #dc3545;
 }
-
-.peso-normal {
-  border-bottom: 3px solid #28a745;
-
+.classificacao.peso-normal {
+   border: 1px solid #28a745;
 }
-
-.sobrepeso {
-  border-bottom: 3px solid #ffc107;
+.classificacao.sobrepeso {
+   border: 1px solid #ffc107;
 }
-
-.obesidade {
-  border-bottom: 3px solid #dc3545; 
+.classificacao.obesidade {
+   border: 1px solid #dc3545;
 }
 
 .info-icon {
@@ -582,7 +578,6 @@ input::placeholder {
 }
 
 .classificacao {
-  border: 1px solid #9c9c9c;
   border-radius: 15px;
   width: 100%;
 }

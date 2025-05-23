@@ -407,7 +407,7 @@ function calcularGastoCalorico() {
 // === TREINO ===
 
 let treinos = JSON.parse(localStorage.getItem("treinos")) || {};
-let diaAtual = "treino-a";
+let diaAtual = localStorage.getItem("treinoSelecionado") || "treino-a";
 let bloqueado = false;
 let treinosFinalizados = parseInt(localStorage.getItem("treinosFinalizados")) || 0;
 
@@ -417,12 +417,12 @@ function atualizarContadorTreinos() {
 
 function trocarDia() {
   diaAtual = document.getElementById("diaSemana").value;
+  localStorage.setItem("treinoSelecionado", diaAtual); // <-- Adicione esta linha
   renderizarExercicios();
-    // Oculta a mensagem de parabéns ao trocar de treino
+  // Oculta a mensagem de parabéns ao trocar de treino
   const mensagem = document.getElementById("mensagemParabens");
   if (mensagem) mensagem.innerHTML = "";
 }
-
 function renderizarExercicios() {
   const container = document.getElementById("exercicios");
   const nomeTreino = document.getElementById("nomeTreino");
@@ -515,12 +515,13 @@ mensagem.innerHTML = `
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("nomeTreino").addEventListener("input", function () {
-    treinos[diaAtual].nome = this.value;
-    salvarLocal();
-  });
+  // ...código existente...
+  const select = document.getElementById("diaSemana");
+  if (select && localStorage.getItem("treinoSelecionado")) {
+    select.value = localStorage.getItem("treinoSelecionado");
+  }
   trocarDia();
-  atualizarContadorTreinos(); // <-- Adicione esta linha
+  atualizarContadorTreinos();
 });
 
 
