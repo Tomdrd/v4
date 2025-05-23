@@ -243,6 +243,24 @@ function atualizarProgresso() {
   document.getElementById("progress-bar").style.width = `${Math.min(progresso, 100)}%`;
   document.getElementById("agua-total").innerText = totalAgua;
   document.getElementById("progress-text").innerText = `Consumido: ${totalAgua}ml`;
+
+  // Mostra mensagem de parabéns se atingir ou ultrapassar a meta
+  const mensagem = document.getElementById("mensagemParabensAgua");
+  if (totalAgua >= meta) {
+   mensagem.innerHTML = `
+<lord-icon
+    src="https://cdn.lordicon.com/rjpyaqnk.json"
+    trigger="loop"
+    delay="500"
+    style="width:40px;height:40px;vertical-align:middle;margin-right:8px;">
+</lord-icon>
+Parabéns, você atingiu a meta diária de hidratação!`;
+mensagem.style.display = "block";
+
+  } else {
+    mensagem.innerText = "";
+    mensagem.style.display = "none";
+  }
 }
 
 function adicionarAgua(qtd) {
@@ -640,5 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// copo animado
 
 
