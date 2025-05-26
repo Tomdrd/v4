@@ -457,14 +457,26 @@ function renderizarExercicios() {
     bloco.innerHTML = `
       <strong>${ex.nome}</strong>
       ${ex.imagem ? `<img src="${ex.imagem}" style="max-width:100%; border-radius:8px; margin-bottom:10px;">` : ""}
-      <div class="linha-inputs">
-        <img src="serie.webp" alt="Séries">
-        <input type="number" placeholder="Série" value="${ex.series}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'series', this.value)">
-        <img src="repeat.webp" alt="Repetições">
-        <input type="number" placeholder="Repetições" value="${ex.repeticoes}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'repeticoes', this.value)">
-        <img src="peso.webp" alt="Carga">
-        <input type="text" placeholder="Peso" value="${ex.carga}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'carga', this.value)">
-      </div>
+<div class="linha-inputs">
+  ${
+    ex.tipo === "cardio" 
+    ? `
+      <img src="time.webp" alt="Tempo">
+      <input type="text" placeholder="Duração (min)" value="${ex.duracao || ''}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'duracao', this.value)">
+      <img src="intensity.webp" alt="Intensidade">
+      <input type="text" placeholder="Intensidade" value="${ex.intensidade || ''}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'intensidade', this.value)">
+    `
+    : `
+      <img src="serie.webp" alt="Séries">
+      <input type="number" placeholder="Série" value="${ex.series}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'series', this.value)">
+      <img src="repeat.webp" alt="Repetições">
+      <input type="number" placeholder="Repetições" value="${ex.repeticoes}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'repeticoes', this.value)">
+      <img src="peso.webp" alt="Carga">
+      <input type="text" placeholder="Peso" value="${ex.carga}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'carga', this.value)">
+    `
+  }
+</div>
+
       <label><input type="text" class="sem-borda" placeholder="Observação" value="${ex.obs}" ${bloqueado ? "disabled" : ""} onchange="atualizarCampo(${index}, 'obs', this.value)"></label>
       <button class="checkbox-btn ${ex.concluido ? "checked" : ""}" onclick="marcar(${index})">
         ${ex.concluido ? "Concluído" : "Concluir"}
@@ -476,16 +488,26 @@ function renderizarExercicios() {
   atualizarStatusExercicios(); // <-- adiciona esta linha ao final
 }
 
-function adicionarExercicio() {
+function adicionarExercicio(tipo = "forca") {
   if (bloqueado) return alert("Desbloqueie para editar.");
   const nome = prompt("Nome do exercício:");
-  if (nome) {
-    treinos[diaAtual].exercicios.push({
-      nome, series: "", repeticoes: "", carga: "", obs: "", concluido: false
-    });
-    renderizarExercicios();
+  if (!nome) return;
+
+  const novo = { nome, obs: "", concluido: false, tipo };
+
+  if (tipo === "cardio") {
+    novo.duracao = "";
+    novo.intensidade = "";
+  } else {
+    novo.series = "";
+    novo.repeticoes = "";
+    novo.carga = "";
   }
+
+  treinos[diaAtual].exercicios.push(novo);
+  renderizarExercicios();
 }
+
 
 function marcar(index) {
   treinos[diaAtual].exercicios[index].concluido = !treinos[diaAtual].exercicios[index].concluido;
@@ -560,6 +582,132 @@ function editarTreino() {
   treinos[diaAtual].bloqueado = false;
   renderizarExercicios();
 }
+
+function aplicarModeloTreino() {
+  const modelo = document.getElementById("modeloTreino").value;
+  if (!modelo) return;
+
+  const modelos = {
+    iniciante: {
+      "treino-a": {
+        nome: "Iniciante A - Pernas e Cardio",
+        exercicios: [
+          { nome: "Caminhada leve (esteira)", tipo: "cardio", duracao: "15", intensidade: "Leve", obs: "Aquecimento", concluido: false },
+          { nome: "Agachamento livre", tipo: "forca", series: "2", repeticoes: "15", carga: "Corpo livre", obs: "", concluido: false },
+          { nome: "Cadeira extensora", tipo: "forca", series: "2", repeticoes: "12", carga: "20kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-b": {
+        nome: "Iniciante B - Superiores e Abdômen",
+        exercicios: [
+          { nome: "Flexão inclinada", tipo: "forca", series: "2", repeticoes: "10", carga: "", obs: "Banco", concluido: false },
+          { nome: "Remada unilateral com halter", tipo: "forca", series: "2", repeticoes: "12", carga: "5kg", obs: "", concluido: false },
+          { nome: "Abdominal reto", tipo: "forca", series: "2", repeticoes: "15", carga: "", obs: "", concluido: false }
+        ]
+      },
+      "treino-c": {
+        nome: "Iniciante C - Funcional e Cardio",
+        exercicios: [
+          { nome: "Bicicleta ergométrica", tipo: "cardio", duracao: "10", intensidade: "Moderada", obs: "", concluido: false },
+          { nome: "Agachamento com salto", tipo: "forca", series: "2", repeticoes: "12", carga: "", obs: "", concluido: false },
+          { nome: "Prancha", tipo: "forca", series: "3", repeticoes: "30s", carga: "", obs: "", concluido: false }
+        ]
+      }
+    },
+    intermediario: {
+      "treino-a": {
+        nome: "Intermediário A - Pernas e Glúteos",
+        exercicios: [
+          { nome: "Agachamento com barra", tipo: "forca", series: "3", repeticoes: "10", carga: "40kg", obs: "", concluido: false },
+          { nome: "Leg press", tipo: "forca", series: "3", repeticoes: "12", carga: "80kg", obs: "", concluido: false },
+          { nome: "Cadeira abdutora", tipo: "forca", series: "3", repeticoes: "15", carga: "25kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-b": {
+        nome: "Intermediário B - Peito e Tríceps",
+        exercicios: [
+          { nome: "Supino reto com barra", tipo: "forca", series: "3", repeticoes: "10", carga: "30kg", obs: "", concluido: false },
+          { nome: "Crucifixo no banco", tipo: "forca", series: "3", repeticoes: "12", carga: "8kg", obs: "", concluido: false },
+          { nome: "Tríceps corda", tipo: "forca", series: "3", repeticoes: "12", carga: "20kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-c": {
+        nome: "Intermediário C - Costas e Bíceps",
+        exercicios: [
+          { nome: "Puxada frente", tipo: "forca", series: "3", repeticoes: "12", carga: "40kg", obs: "", concluido: false },
+          { nome: "Remada baixa", tipo: "forca", series: "3", repeticoes: "10", carga: "35kg", obs: "", concluido: false },
+          { nome: "Rosca direta", tipo: "forca", series: "3", repeticoes: "12", carga: "8kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-d": {
+        nome: "Intermediário D - Funcional e HIIT leve",
+        exercicios: [
+          { nome: "Circuito funcional (corda, agacho, polichinelo)", tipo: "cardio", duracao: "20", intensidade: "Moderada", obs: "", concluido: false },
+          { nome: "Abdominal oblíquo", tipo: "forca", series: "3", repeticoes: "20", carga: "", obs: "", concluido: false },
+          { nome: "Prancha dinâmica", tipo: "forca", series: "3", repeticoes: "30s", carga: "", obs: "", concluido: false }
+        ]
+      }
+    },
+    avancado: {
+      "treino-a": {
+        nome: "Avançado A - Pernas pesadas",
+        exercicios: [
+          { nome: "Agachamento livre com barra", tipo: "forca", series: "4", repeticoes: "8", carga: "70kg", obs: "", concluido: false },
+          { nome: "Cadeira extensora", tipo: "forca", series: "4", repeticoes: "12", carga: "40kg", obs: "", concluido: false },
+          { nome: "Avanço com halteres", tipo: "forca", series: "3", repeticoes: "10", carga: "10kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-b": {
+        nome: "Avançado B - Peito e Tríceps Intenso",
+        exercicios: [
+          { nome: "Supino inclinado com halteres", tipo: "forca", series: "4", repeticoes: "10", carga: "20kg", obs: "", concluido: false },
+          { nome: "Cross-over", tipo: "forca", series: "4", repeticoes: "12", carga: "25kg", obs: "", concluido: false },
+          { nome: "Mergulho em banco", tipo: "forca", series: "3", repeticoes: "15", carga: "peso corporal", obs: "", concluido: false }
+        ]
+      },
+      "treino-c": {
+        nome: "Avançado C - Costas e Bíceps",
+        exercicios: [
+          { nome: "Puxada aberta", tipo: "forca", series: "4", repeticoes: "10", carga: "50kg", obs: "", concluido: false },
+          { nome: "Remada cavalinho", tipo: "forca", series: "4", repeticoes: "12", carga: "35kg", obs: "", concluido: false },
+          { nome: "Rosca martelo", tipo: "forca", series: "4", repeticoes: "10", carga: "12kg", obs: "", concluido: false }
+        ]
+      },
+      "treino-d": {
+        nome: "Avançado D - Ombros e Abdômen",
+        exercicios: [
+          { nome: "Desenvolvimento com halteres", tipo: "forca", series: "4", repeticoes: "10", carga: "16kg", obs: "", concluido: false },
+          { nome: "Elevação lateral", tipo: "forca", series: "4", repeticoes: "12", carga: "8kg", obs: "", concluido: false },
+          { nome: "Abdominal com bola", tipo: "forca", series: "4", repeticoes: "20", carga: "", obs: "", concluido: false }
+        ]
+      },
+      "treino-e": {
+        nome: "Avançado E - HIIT e Core",
+        exercicios: [
+          { nome: "Corrida HIIT (esteira)", tipo: "cardio", duracao: "20", intensidade: "Alta", obs: "Intervalos de 1min", concluido: false },
+          { nome: "Prancha com apoio", tipo: "forca", series: "4", repeticoes: "40s", carga: "", obs: "", concluido: false },
+          { nome: "Abdominal bicicleta", tipo: "forca", series: "3", repeticoes: "30", carga: "", obs: "", concluido: false }
+        ]
+      }
+    }
+  };
+
+  const treinoGrupo = modelos[modelo];
+  if (!treinoGrupo) return;
+
+  Object.entries(treinoGrupo).forEach(([dia, conteudo]) => {
+    treinos[dia] = {
+      nome: conteudo.nome,
+      exercicios: conteudo.exercicios,
+      bloqueado: false
+    };
+  });
+
+  renderizarExercicios();
+  alert("Treinos do modelo " + modelo + " aplicados com sucesso!");
+}
+
+
 
 function atualizarCampo(index, campo, valor) {
   treinos[diaAtual].exercicios[index][campo] = valor;

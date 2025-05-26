@@ -947,6 +947,42 @@ canvas {
   display: none; /* Começa oculto */
 }
 
+.selecionar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+/* Deixe o select do modelo de treino estilizado e alinhado */
+#modeloTreino {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #9c9c9c;
+  font-size: 14px;
+  text-align: center;
+  color: #333; 
+  transition: border-color 0.2s;
+  width: 90%;
+  margin: 0;
+  text-shadow: 0px 1px 0px #ffee66;
+  background-color: #f8a025;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+  /* Bordas arredondadas */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra */ 
+  transition: background-color 0.3s, color 0.3s;
+  /* Transição suave */
+}
+
+#modeloTreino:focus {
+  outline: none;
+}
+
 
 
 

@@ -46,8 +46,26 @@
         <div class="box">
         
             <h2>Ficha de Treino</h2>
-            
-            <div id="dia-treino" style="display: flex; align-items: center; gap: 10px;">
+        
+            <div class="button-container">
+
+                <button onclick="editarTreino()">Editar</button>
+                <button onclick="salvarTreino()">Salvar</button>
+                <button onclick="novoTreino()">Novo</button>
+            </div>
+         <div class="selecionar">
+  <select id="modeloTreino" onchange="aplicarModeloTreino()">
+    <option value="">Para...</option>
+    <option value="iniciante">Iniciante</option>
+    <option value="intermediario">Intermediário</option>
+    <option value="avancado">Avançado</option>
+  </select>
+                  <button onclick="adicionarExercicio('forca')">+ Força</button>
+                <button onclick="adicionarExercicio('cardio')">+ Cardio</button>
+</div>
+        </div>
+<div class="box">
+                <div id="dia-treino" style="display: flex; align-items: center; gap: 10px;">
                 <select id="diaSemana" onchange="trocarDia()">
                     <option value="treino-a">Treino A</option>
                     <option value="treino-b">Treino B</option>
@@ -58,16 +76,9 @@
                 
                 <input type="text" id="nomeTreino" placeholder="Nome do treino (ex: Perna)" />
                 
-            </div>
-            <div class="button-container">
-                <button onclick="adicionarExercicio()">Adicionar</button>
-                <button onclick="editarTreino()">Editar</button>
-                <button onclick="salvarTreino()">Salvar</button>
-                <button onclick="novoTreino()">Novo</button>
-            </div>
-        
-            <div id="exercicios"></div>
-            <div class="button-container">
+            </div>   
+        <div id="exercicios"></div>
+                <div class="button-container">
                 <button onclick="marcarTodos()">Todos concluído</button>
                 <button onclick="finalizarTreino()">Finalizar</button>
             </div>
@@ -75,7 +86,9 @@
             <p id="mensagemParabens"></p>
             
         <div id="contador-treinos">Treinos finalizados: <span id="treinosFinalizados">0</span></div>
-        </div>
+    </div>
+        
+        
                             <!-- VEJA MAIS -->
                             <div class="box">
                                 <div class="quiz-container">
